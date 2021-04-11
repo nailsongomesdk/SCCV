@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -18,7 +21,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="9.0" layoutY="210.0" prefHeight="216.0" prefWidth="660.0">
+                        <TableView layoutX="14.0" layoutY="202.0" prefHeight="216.0" prefWidth="651.0">
                           <columns>
                             <TableColumn prefWidth="350.0" text="Nome" />
                             <TableColumn minWidth="0.0" prefWidth="150.0" text="CPF" />
@@ -27,17 +30,32 @@
                         </TableView>
                         <TextField layoutX="29.0" layoutY="38.0" prefHeight="25.0" prefWidth="427.0" />
                         <Label layoutX="29.0" layoutY="21.0" text="Nome" />
-                        <TextField layoutX="29.0" layoutY="80.0" />
-                        <Label layoutX="29.0" layoutY="63.0" text="CPF" />
-                        <TextField layoutX="29.0" layoutY="122.0" />
-                        <Label layoutX="29.0" layoutY="105.0" text="Saldo" />
-                        <Pane layoutX="576.0" layoutY="5.0" prefHeight="200.0" prefWidth="93.0">
+                        <TextField layoutX="29.0" layoutY="95.0" />
+                        <Label layoutX="29.0" layoutY="78.0" text="CPF" />
+                        <TextField layoutX="285.0" layoutY="95.0" />
+                        <Label layoutX="285.0" layoutY="78.0" text="Saldo" />
+                        <Pane layoutX="571.0" layoutY="22.0" prefHeight="171.0" prefWidth="93.0">
                            <children>
-                              <Button layoutX="1.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Salvar" />
-                              <Button layoutX="1.0" layoutY="27.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Editar" />
-                              <Button layoutX="1.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Cancelar" />
-                              <Button layoutX="1.0" layoutY="77.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Apagar" />
-                              <Button layoutX="1.0" layoutY="102.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Listar" />
+                              <Button layoutX="1.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Salvar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Button layoutX="1.0" layoutY="27.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Button layoutX="1.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Button layoutX="1.0" layoutY="77.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Apagar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Button layoutX="1.0" layoutY="102.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Listar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                            </children>
                         </Pane>
                      </children>
@@ -48,7 +66,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="9.0" layoutY="210.0" prefHeight="216.0" prefWidth="660.0">
+                        <TableView layoutX="14.0" layoutY="202.0" prefHeight="216.0" prefWidth="651.0">
                            <columns>
                               <TableColumn prefWidth="350.0" text="Nome" />
                               <TableColumn minWidth="0.0" prefWidth="150.0" text="CNPJ" />
@@ -57,17 +75,37 @@
                         </TableView>
                         <TextField layoutX="29.0" layoutY="38.0" prefHeight="25.0" prefWidth="427.0" />
                         <Label layoutX="29.0" layoutY="21.0" text="Nome" />
-                        <TextField layoutX="29.0" layoutY="80.0" />
-                        <Label layoutX="29.0" layoutY="63.0" text="CNPJ" />
-                        <TextField layoutX="29.0" layoutY="122.0" />
-                        <Label layoutX="29.0" layoutY="105.0" text="Saldo" />
-                        <Pane layoutX="576.0" layoutY="5.0" prefHeight="200.0" prefWidth="93.0">
+                        <TextField layoutX="29.0" layoutY="95.0" />
+                        <Label layoutX="29.0" layoutY="78.0" text="CNPJ" />
+                        <TextField layoutX="285.0" layoutY="95.0" />
+                        <Label layoutX="285.0" layoutY="78.0" text="Saldo" />
+                        <Pane layoutX="571.0" layoutY="22.0" prefHeight="171.0" prefWidth="93.0">
                            <children>
-                              <Button layoutX="1.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Salvar" />
-                              <Button layoutX="1.0" layoutY="27.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Editar" />
-                              <Button layoutX="1.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Cancelar" />
-                              <Button layoutX="1.0" layoutY="77.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Apagar" />
-                              <Button layoutX="1.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Listar" />
+                              <Button layoutX="1.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Salvar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="1.0" layoutY="27.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="1.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="1.0" layoutY="77.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Apagar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="1.0" layoutY="102.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Listar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
                         </Pane>
                      </children>
@@ -76,26 +114,140 @@
             </Tab>
             <Tab text="Produto">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="14.0" layoutY="202.0" prefHeight="216.0" prefWidth="651.0">
+                           <columns>
+                              <TableColumn prefWidth="350.0" text="Nome" />
+                              <TableColumn minWidth="0.0" prefWidth="150.0" text="Preço" />
+                              <TableColumn prefWidth="150.0" text="Codigo Barras" />
+                           </columns>
+                        </TableView>
+                        <TextField layoutX="29.0" layoutY="38.0" prefHeight="25.0" prefWidth="427.0" />
+                        <Label layoutX="29.0" layoutY="21.0" text="Nome" />
+                        <TextField layoutX="29.0" layoutY="95.0" />
+                        <Label layoutX="29.0" layoutY="78.0" text="Preço" />
+                        <TextField layoutX="285.0" layoutY="95.0" />
+                        <Label layoutX="285.0" layoutY="78.0" text="Codigo de barras" />
+                        <Pane layoutX="571.0" layoutY="22.0" prefHeight="171.0" prefWidth="93.0">
+                           <children>
+                              <Button layoutX="1.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Salvar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="1.0" layoutY="27.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="1.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="1.0" layoutY="77.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Apagar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="1.0" layoutY="102.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Listar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
                </content>
             </Tab>
             <Tab text="Venda">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField layoutX="28.0" layoutY="39.0" />
+                        <Label layoutX="28.0" layoutY="22.0" text="CPF Comprador" />
+                        <TextField layoutX="284.0" layoutY="39.0" />
+                        <Label layoutX="284.0" layoutY="22.0" text="CNPJ Vendedor" />
+                        <ListView layoutX="14.0" layoutY="202.0" prefHeight="216.0" prefWidth="651.0" />
+                        <Pane layoutX="571.0" layoutY="22.0" prefHeight="171.0" prefWidth="93.0">
+                           <children>
+                              <Button layoutX="1.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Salvar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="1.0" layoutY="27.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="1.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="1.0" layoutY="77.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Apagar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="1.0" layoutY="102.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Listar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
                </content>
             </Tab>
             <Tab text="Financeiro">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="9.0" layoutY="210.0" prefHeight="216.0" prefWidth="660.0">
-                           <columns>
-                              <TableColumn prefWidth="75.0" text="Nome" />
-                              <TableColumn prefWidth="75.0" text="CPF" />
-                              <TableColumn prefWidth="75.0" text="Saldo" />
-                              <TableColumn prefWidth="75.0" />
-                           </columns>
-                        </TableView>
+                        <TextField layoutX="28.0" layoutY="39.0" />
+                        <Label layoutX="28.0" layoutY="22.0" text="CPF Comprador" />
+                        <TextField layoutX="284.0" layoutY="39.0" />
+                        <Label layoutX="284.0" layoutY="22.0" text="CNPJ Vendedor" />
+                        <ListView layoutX="14.0" layoutY="202.0" prefHeight="216.0" prefWidth="651.0" />
+                        <Label layoutX="28.0" layoutY="76.0" text="Pagamento" />
+                        <ChoiceBox layoutX="27.0" layoutY="96.0" prefHeight="24.0" prefWidth="171.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ChoiceBox>
+                        <Pane layoutX="571.0" layoutY="23.0" prefHeight="171.0" prefWidth="93.0">
+                           <children>
+                              <Button layoutX="1.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Salvar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="1.0" layoutY="27.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="1.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="1.0" layoutY="77.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Apagar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button layoutX="1.0" layoutY="102.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Listar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </Pane>
                      </children>
                   </AnchorPane>
                </content>
