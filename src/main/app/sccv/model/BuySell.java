@@ -1,6 +1,6 @@
-package src.main.app.sccv.model;
+package main.app.sccv.model;
 
-import src.main.app.sccv.model.payment.Payment;
+import main.app.sccv.model.payment.Payment;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;

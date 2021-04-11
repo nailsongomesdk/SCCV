@@ -1,7 +1,7 @@
-package src.main.app.sccv.model.payment;
+package main.app.sccv.model.payment;
 
-import src.main.app.sccv.model.person.Buyer;
-import src.main.app.sccv.model.person.Seller;
+import main.app.sccv.model.person.Buyer;
+import main.app.sccv.model.person.Seller;
 
 import java.time.LocalDate;
 

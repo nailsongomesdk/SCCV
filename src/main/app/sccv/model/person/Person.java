@@ -1,4 +1,4 @@
-package src.main.app.sccv.model.person;
+package main.app.sccv.model.person;
 
 public class Person {
   private String name;

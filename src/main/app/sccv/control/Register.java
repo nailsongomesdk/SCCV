@@ -1,9 +1,9 @@
-package src.main.app.sccv.control;
+package main.app.sccv.control;
 
-import src.main.app.sccv.model.BuySell;
-import src.main.app.sccv.model.Product;
-import src.main.app.sccv.model.person.Buyer;
-import src.main.app.sccv.model.person.Seller;
+import main.app.sccv.model.BuySell;
+import main.app.sccv.model.Product;
+import main.app.sccv.model.person.Buyer;
+import main.app.sccv.model.person.Seller;
 
 import javax.swing.text.MaskFormatter;
 import java.text.ParseException;

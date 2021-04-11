@@ -1,12 +1,12 @@
-package src.main.app.sccv.view.menu;
+package main.app.sccv.view.menu;
 
-import src.main.app.sccv.control.Register;
-import src.main.app.sccv.control.Search;
-import src.main.app.sccv.model.BuySell;
-import src.main.app.sccv.model.Product;
-import src.main.app.sccv.model.payment.*;
-import src.main.app.sccv.model.person.Buyer;
-import src.main.app.sccv.model.person.Seller;
+import main.app.sccv.control.Register;
+import main.app.sccv.control.Search;
+import main.app.sccv.model.BuySell;
+import main.app.sccv.model.Product;
+import main.app.sccv.model.payment.*;
+import main.app.sccv.model.person.Buyer;
+import main.app.sccv.model.person.Seller;
 
 import javax.swing.text.MaskFormatter;
 import java.io.IOException;

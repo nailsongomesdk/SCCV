@@ -1,4 +1,4 @@
-package src.main.app.sccv.model;
+package main.app.sccv.model;
 
 import java.text.MessageFormat;
 import java.util.Objects;

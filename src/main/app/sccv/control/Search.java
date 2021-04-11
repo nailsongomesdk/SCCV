@@ -1,9 +1,9 @@
-package src.main.app.sccv.control;
+package main.app.sccv.control;
 
-import src.main.app.sccv.model.Product;
-import src.main.app.sccv.model.person.Buyer;
-import src.main.app.sccv.model.person.Seller;
-import src.main.app.sccv.view.menu.Menu;
+import main.app.sccv.model.Product;
+import main.app.sccv.model.person.Buyer;
+import main.app.sccv.model.person.Seller;
+import main.app.sccv.view.menu.Menu;
 
 public class Search {
   public static Buyer searchingBuyer(String cpf) {

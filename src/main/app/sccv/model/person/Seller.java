@@ -1,9 +1,9 @@
-package src.main.app.sccv.model.person;
+package main.app.sccv.model.person;
 
-import src.main.app.sccv.control.Register;
-import src.main.app.sccv.model.BuySell;
-import src.main.app.sccv.model.Product;
-import src.main.app.sccv.model.payment.Payment;
+import main.app.sccv.control.Register;
+import main.app.sccv.model.BuySell;
+import main.app.sccv.model.Product;
+import main.app.sccv.model.payment.Payment;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
