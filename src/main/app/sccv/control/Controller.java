@@ -13,6 +13,10 @@ public class Controller {
   @FXML
   private TableColumn<?, ?> columnClientName;
   @FXML
+  public TableColumn<?, ?> columnClientCPF;
+  @FXML
+  public TableColumn<?, ?> columnClientWallet;
+  @FXML
   private TextField inputClientName;
 
   @FXML
@@ -51,6 +55,14 @@ public class Controller {
     try {
       if ((inputClientName.getText() != null && !inputClientName.getText().isEmpty())) {
         columnClientName.setText(inputClientName.getText());
+
+        if ((inputClientCPF.getText() != null && !inputClientCPF.getText().isEmpty())) {
+          columnClientCPF.setText(inputClientCPF.getText());
+
+          if ((inputClientWallet.getText() != null && !inputClientWallet.getText().isEmpty())) {
+            columnClientWallet.setText(inputClientWallet.getText());
+          }
+        }
       }
     } catch (Exception e) {
       System.err.println("Error: " + e + "não pode ficar vazio.");
