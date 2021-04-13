@@ -24,39 +24,39 @@
                             <children>
                                 <TableView layoutX="14.0" layoutY="202.0" prefHeight="216.0" prefWidth="651.0">
                                     <columns>
-                                        <TableColumn prefWidth="350.0" text="Nome" />
+                                        <TableColumn fx:id="columnClientName" prefWidth="350.0" text="Nome" />
                                         <TableColumn minWidth="0.0" prefWidth="150.0" text="CPF" />
                                         <TableColumn prefWidth="150.0" text="Saldo" />
                                     </columns>
                                 </TableView>
-                                <TextField id="inputClientName" layoutX="29.0" layoutY="38.0" prefHeight="25.0" prefWidth="427.0" />
+                                <TextField fx:id="inputClientName" layoutX="29.0" layoutY="38.0" prefHeight="25.0" prefWidth="427.0" />
                                 <Label layoutX="29.0" layoutY="21.0" text="Nome" />
-                                <TextField id="inputClientCPF" layoutX="29.0" layoutY="95.0" />
+                                <TextField fx:id="inputClientCPF" layoutX="29.0" layoutY="95.0" />
                                 <Label layoutX="29.0" layoutY="78.0" text="CPF" />
-                                <TextField id="inputClientWallet" layoutX="285.0" layoutY="95.0" />
+                                <TextField fx:id="inputClientWallet" layoutX="285.0" layoutY="95.0" />
                                 <Label layoutX="285.0" layoutY="78.0" text="Saldo" />
                                 <Pane layoutX="571.0" layoutY="22.0" prefHeight="171.0" prefWidth="93.0">
                                     <children>
-                                        <Button layoutY="13.0" mnemonicParsing="false" onMouseClicked="#handleSaveClient" prefHeight="25.0" prefWidth="91.0" text="Salvar">
+                                        <Button layoutY="13.0" mnemonicParsing="false" onAction="#handleSaveClientName" prefHeight="25.0" prefWidth="91.0" text="Salvar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets></Button>
-                                        <Button layoutY="43.0" mnemonicParsing="false" onMouseClicked="#handleEditClient" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                                        <Button layoutY="43.0" mnemonicParsing="false" onAction="#handleEditClient" prefHeight="25.0" prefWidth="91.0" text="Editar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor></Button>
-                                        <Button layoutY="73.0" mnemonicParsing="false" onMouseClicked="#handleCancelClient" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                                        <Button layoutY="73.0" mnemonicParsing="false" onAction="#handleCancelClient" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor></Button>
-                                        <Button layoutY="103.0" mnemonicParsing="false" onMouseClicked="#handleDeleteClient" prefHeight="25.0" prefWidth="91.0" text="Apagar">
+                                        <Button layoutY="103.0" mnemonicParsing="false" onAction="#handleDeleteClient" prefHeight="25.0" prefWidth="91.0" text="Apagar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor></Button>
-                                        <Button layoutY="133.0" mnemonicParsing="false" onMouseClicked="#handleListClient" prefHeight="25.0" prefWidth="91.0" text="Listar">
+                                        <Button layoutY="133.0" mnemonicParsing="false" onAction="#handleListClient" prefHeight="25.0" prefWidth="91.0" text="Listar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor></Button>
@@ -77,35 +77,35 @@
                                         <TableColumn prefWidth="150.0" text="Saldo" />
                                     </columns>
                                 </TableView>
-                                <TextField id="inputSellerName" layoutX="29.0" layoutY="38.0" prefHeight="25.0" prefWidth="427.0" />
+                                <TextField fx:id="inputSellerName" layoutX="29.0" layoutY="38.0" prefHeight="25.0" prefWidth="427.0" />
                                 <Label layoutX="29.0" layoutY="21.0" text="Nome" />
-                                <TextField id="inputSellerCNPJ" layoutX="29.0" layoutY="95.0" />
+                                <TextField fx:id="inputSellerCNPJ" layoutX="29.0" layoutY="95.0" />
                                 <Label layoutX="29.0" layoutY="78.0" text="CNPJ" />
-                                <TextField id="inputSellerWallet" layoutX="285.0" layoutY="95.0" />
+                                <TextField fx:id="inputSellerWallet" layoutX="285.0" layoutY="95.0" />
                                 <Label layoutX="285.0" layoutY="78.0" text="Saldo" />
                                 <Pane layoutX="571.0" layoutY="22.0" prefHeight="171.0" prefWidth="93.0">
                                     <children>
-                                        <Button layoutY="13.0" mnemonicParsing="false" onMouseClicked="#handleSaveSeller" prefHeight="25.0" prefWidth="91.0" text="Salvar">
+                                        <Button layoutY="13.0" mnemonicParsing="false" onAction="#handleSaveSeller" prefHeight="25.0" prefWidth="91.0" text="Salvar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Button layoutY="43.0" mnemonicParsing="false" onMouseClicked="#handleEditSeller" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                                        <Button layoutY="43.0" mnemonicParsing="false" onAction="#handleEditSeller" prefHeight="25.0" prefWidth="91.0" text="Editar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Button layoutY="73.0" mnemonicParsing="false" onMouseClicked="#handleCancelSeller" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                                        <Button layoutY="73.0" mnemonicParsing="false" onAction="#handleCancelSeller" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Button layoutY="103.0" mnemonicParsing="false" onMouseClicked="#handleDeleteSeller" prefHeight="25.0" prefWidth="91.0" text="Apagar">
+                                        <Button layoutY="103.0" mnemonicParsing="false" onAction="#handleDeleteSeller" prefHeight="25.0" prefWidth="91.0" text="Apagar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Button layoutY="133.0" mnemonicParsing="false" onMouseClicked="#handleListSeller" prefHeight="25.0" prefWidth="91.0" text="Listar">
+                                        <Button layoutY="133.0" mnemonicParsing="false" onAction="#handleListSeller" prefHeight="25.0" prefWidth="91.0" text="Listar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
@@ -130,35 +130,35 @@
                                         <TableColumn prefWidth="150.0" text="Codigo Barras" />
                                     </columns>
                                 </TableView>
-                                <TextField id="inputProductName" layoutX="29.0" layoutY="38.0" prefHeight="25.0" prefWidth="427.0" />
+                                <TextField fx:id="inputProductName" layoutX="29.0" layoutY="38.0" prefHeight="25.0" prefWidth="427.0" />
                                 <Label layoutX="29.0" layoutY="21.0" text="Nome" />
-                                <TextField id="inputProductPrice" layoutX="29.0" layoutY="95.0" />
+                                <TextField fx:id="inputProductPrice" layoutX="29.0" layoutY="95.0" />
                                 <Label layoutX="29.0" layoutY="78.0" text="Preço" />
-                                <TextField id="inputProductBarcode" layoutX="285.0" layoutY="95.0" />
+                                <TextField fx:id="inputProductBarcode" layoutX="285.0" layoutY="95.0" />
                                 <Label layoutX="285.0" layoutY="78.0" text="Codigo de barras" />
                                 <Pane layoutX="571.0" layoutY="22.0" prefHeight="171.0" prefWidth="93.0">
                                     <children>
-                                        <Button layoutY="13.0" mnemonicParsing="false" onMouseClicked="#handleSaveProduct" prefHeight="25.0" prefWidth="91.0" text="Salvar">
+                                        <Button layoutY="13.0" mnemonicParsing="false" onAction="#handleSaveProduct" prefHeight="25.0" prefWidth="91.0" text="Salvar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Button layoutY="43.0" mnemonicParsing="false" onMouseClicked="#handleEditProduct" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                                        <Button layoutY="43.0" mnemonicParsing="false" onAction="#handleEditProduct" prefHeight="25.0" prefWidth="91.0" text="Editar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Button layoutY="73.0" mnemonicParsing="false" onMouseClicked="#handleCancelProduct" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                                        <Button layoutY="73.0" mnemonicParsing="false" onAction="#handleCancelProduct" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Button layoutY="103.0" mnemonicParsing="false" onMouseClicked="#handleDeleteProduct" prefHeight="25.0" prefWidth="91.0" text="Apagar">
+                                        <Button layoutY="103.0" mnemonicParsing="false" onAction="#handleDeleteProduct" prefHeight="25.0" prefWidth="91.0" text="Apagar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Button layoutY="133.0" mnemonicParsing="false" onMouseClicked="#handleListProduct" prefHeight="25.0" prefWidth="91.0" text="Listar">
+                                        <Button layoutY="133.0" mnemonicParsing="false" onAction="#handleListProduct" prefHeight="25.0" prefWidth="91.0" text="Listar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
@@ -173,34 +173,34 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TextField id="inputBuySellClientCPF" layoutX="28.0" layoutY="39.0" />
+                                <TextField fx:id="inputBuySellClientCPF" layoutX="28.0" layoutY="39.0" />
                                 <Label layoutX="28.0" layoutY="22.0" text="CPF Comprador" />
-                                <TextField id="inputBuySellSellerCNPJ" layoutX="284.0" layoutY="39.0" />
+                                <TextField fx:id="inputBuySellSellerCNPJ" layoutX="284.0" layoutY="39.0" />
                                 <Label layoutX="284.0" layoutY="22.0" text="CNPJ Vendedor" />
                                 <ListView layoutX="14.0" layoutY="202.0" prefHeight="216.0" prefWidth="651.0" />
                                 <Pane layoutX="571.0" layoutY="22.0" prefHeight="171.0" prefWidth="93.0">
                                     <children>
-                                        <Button layoutY="13.0" mnemonicParsing="false" onMouseClicked="#handleSaveSell" prefHeight="25.0" prefWidth="91.0" text="Salvar">
+                                        <Button layoutY="13.0" mnemonicParsing="false" onAction="#handleSaveSell" prefHeight="25.0" prefWidth="91.0" text="Salvar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Button layoutY="43.0" mnemonicParsing="false" onMouseClicked="#handleEditSell" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                                        <Button layoutY="43.0" mnemonicParsing="false" onAction="#handleEditSell" prefHeight="25.0" prefWidth="91.0" text="Editar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Button layoutY="73.0" mnemonicParsing="false" onMouseClicked="#handleCancelSell" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                                        <Button layoutY="73.0" mnemonicParsing="false" onAction="#handleCancelSell" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Button layoutY="103.0" mnemonicParsing="false" onMouseClicked="#handleDeleteSell" prefHeight="25.0" prefWidth="91.0" text="Apagar">
+                                        <Button layoutY="103.0" mnemonicParsing="false" onAction="#handleDeleteSell" prefHeight="25.0" prefWidth="91.0" text="Apagar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Button layoutY="133.0" mnemonicParsing="false" onMouseClicked="#handleListSell" prefHeight="25.0" prefWidth="91.0" text="Listar">
+                                        <Button layoutY="133.0" mnemonicParsing="false" onAction="#handleListSell" prefHeight="25.0" prefWidth="91.0" text="Listar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
@@ -208,7 +208,7 @@
                                     </children>
                                 </Pane>
                         <Label layoutX="29.0" layoutY="78.0" text="Pagamento" />
-                        <ChoiceBox id="selectPaymentMethod" layoutX="29.0" layoutY="95.0" onMouseClicked="#handleSelectPaymentMethod" prefHeight="24.0" prefWidth="171.0">
+                        <ChoiceBox layoutX="29.0" layoutY="95.0" onAction="#handleSelectPaymentMethod" prefHeight="24.0" prefWidth="171.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
