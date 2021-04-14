@@ -1,5 +1,7 @@
 package main.app.sccv.control;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -96,6 +98,14 @@ public class Controller implements Initializable {
       columnProductPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
       columnProductBarcode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
     }*/
+
+    tableClient.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+      @Override
+      public void changed(ObservableValue observableValue, Object oldValue, Object newValue) {
+        Buyer b = (Buyer) newValue;
+
+      }
+    });
   }
 
   // Handle Client
@@ -126,7 +136,9 @@ public class Controller implements Initializable {
 
   @FXML
   public void handleEditClient(ActionEvent event) {
-    System.out.println("Botão editar cliente funcionando!");
+    inputClientName.setText(tableClient.getSelectionModel().getSelectedItem().getName());
+    inputClientCPF.setText(tableClient.getSelectionModel().getSelectedItem().getCpf());
+    inputClientWallet.setText(String.valueOf(tableClient.getSelectionModel().getSelectedItem().getWallet()));
   }
 
   @FXML
@@ -139,7 +151,7 @@ public class Controller implements Initializable {
 
   @FXML
   public void handleDeleteClient(ActionEvent event) {
-    System.out.println("Botão apagar cliente funcionando!");
+
   }
 
   // Handle Seller
