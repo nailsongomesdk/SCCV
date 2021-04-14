@@ -1,72 +1,127 @@
 package main.app.sccv.control;
 
-import main.app.sccv.model.payment.Payment;
-
-import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import main.app.sccv.model.Product;
+import main.app.sccv.model.payment.Payment;
+import main.app.sccv.model.person.Buyer;
+import main.app.sccv.model.person.Seller;
 
-public class Controller {
+import javax.swing.text.MaskFormatter;
+import java.net.URL;
+import java.text.ParseException;
+import java.util.ResourceBundle;
+
+public class Controller implements Initializable {
   // Client
   @FXML
-  private TableColumn<?, ?> columnClientName;
+  public TableView<Buyer> tableClient;
   @FXML
-  public TableColumn<?, ?> columnClientCPF;
+  public TableColumn<Buyer, String> columnClientCPF;
   @FXML
-  public TableColumn<?, ?> columnClientWallet;
-  @FXML
-  private TextField inputClientName;
-
-  @FXML
-  private TextField inputClientCPF;
-
-  @FXML
-  private TextField inputClientWallet;
-
+  public TableColumn<Buyer, Double> columnClientWallet;
   // Seller
   @FXML
-  private TextField inputSellerName;
-
+  public TableView<Seller> tableSeller;
   @FXML
-  private TextField inputSellerCPF;
-
+  public TableColumn<Seller, String> columnSellerCNPJ;
   @FXML
-  private TextField inputSellerWallet;
-
+  public TableColumn<Seller, Double> columnSellerWallet;
   // Product
   @FXML
+  public TableView<Product> tableProduct;
+  @FXML
+  public TableColumn<Product, Double> columnProductPrice;
+  @FXML
+  public TableColumn<Product, String> columnProductBarcode;
+  @FXML
+  private TableColumn<Buyer, String> columnClientName;
+  @FXML
+  private TextField inputClientName;
+  @FXML
+  private TextField inputClientCPF;
+  @FXML
+  private TextField inputClientWallet;
+  @FXML
+  private TableColumn<Seller, String> columnSellerName;
+  @FXML
+  private TextField inputSellerName;
+  @FXML
+  private TextField inputSellerCNPJ;
+  @FXML
+  private TextField inputSellerWallet;
+  @FXML
+  private TableColumn<Product, String> columnProductName;
+  @FXML
   private TextField inputProductName;
-
   @FXML
   private TextField inputProductPrice;
-
   @FXML
   private TextField inputProductBarcode;
+
+  // BuySell
+  @FXML
+  private TextField inputBuySellClientCPF;
+  @FXML
+  private TextField inputBuySellSellerCNPJ;
 
   // Payment
   @FXML
   private ComboBox<Payment> selectPaymentMethod;
 
+  @Override
+  public void initialize(URL location, ResourceBundle resource) {
+    // Verifica se é a tabela de clientes
+    //if (tableClient) {}
+    columnClientName.setCellValueFactory(new PropertyValueFactory<>("name"));
+    columnClientCPF.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+    columnClientWallet.setCellValueFactory(new PropertyValueFactory<>("wallet"));
+
+    // Verifica se é a tabela de vendedores
+    /*if (tableSeller) {
+      columnSellerName.setCellValueFactory(new PropertyValueFactory<>("name"));
+      columnSellerCNPJ.setCellValueFactory(new PropertyValueFactory<>("cnpj"));
+      columnSellerWallet.setCellValueFactory(new PropertyValueFactory<>("wallet"));
+    }*/
+
+    // Verifica se é a tabela de produtos
+    /*if (tableProduct) {
+      columnProductName.setCellValueFactory(new PropertyValueFactory<>("name"));
+      columnProductPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+      columnProductBarcode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
+    }*/
+  }
+
   // Handle Client
   @FXML
-  public void handleSaveClientName(ActionEvent event) {
-    try {
-      if ((inputClientName.getText() != null && !inputClientName.getText().isEmpty())) {
-        columnClientName.setText(inputClientName.getText());
-
-        if ((inputClientCPF.getText() != null && !inputClientCPF.getText().isEmpty())) {
-          columnClientCPF.setText(inputClientCPF.getText());
-
-          if ((inputClientWallet.getText() != null && !inputClientWallet.getText().isEmpty())) {
-            columnClientWallet.setText(inputClientWallet.getText());
-          }
+  public void handleSaveClient(ActionEvent event) {
+    if ((inputClientName.getText() != null && ! inputClientName.getText().isEmpty())) {
+      if ((inputClientCPF.getText() != null && ! inputClientCPF.getText().isEmpty())) {
+        if ((inputClientWallet.getText() != null && ! inputClientWallet.getText().isEmpty())) {
+          tableClient.getItems().add(new Buyer(inputClientName.getText(), inputClientCPF.getText(), Double.parseDouble(inputClientWallet.getText())));
         }
       }
-    } catch (Exception e) {
-      System.err.println("Error: " + e + "não pode ficar vazio.");
     }
+
+    // Adiciona máscara ao CPF
+    try {
+      MaskFormatter mask = new MaskFormatter("###.###.###-##");
+      mask.setValueContainsLiteralCharacters(false);
+      //comprador.setCpf(mask.valueToString(entry.nextLine()));
+    } catch (ParseException e) {
+      e.printStackTrace();
+    }
+
+    // Limpa os inputs
+    inputClientName.setText("");
+    inputClientCPF.setText("");
+    inputClientWallet.setText("");
   }
 
   @FXML
@@ -76,7 +131,10 @@ public class Controller {
 
   @FXML
   public void handleCancelClient(ActionEvent event) {
-    System.out.println("Botão cancelar cliente funcionando!");
+    // Limpa os inputs
+    inputClientName.setText("");
+    inputClientCPF.setText("");
+    inputClientWallet.setText("");
   }
 
   @FXML
@@ -84,15 +142,21 @@ public class Controller {
     System.out.println("Botão apagar cliente funcionando!");
   }
 
-  @FXML
-  public void handleListClient(ActionEvent event) {
-    System.out.println("Botão listar cliente funcionando!");
-  }
-
   // Handle Seller
   @FXML
   public void handleSaveSeller(ActionEvent event) {
-    System.out.println("Botão salvar vendedor funcionando!");
+    if ((inputSellerName.getText() != null && ! inputSellerName.getText().isEmpty())) {
+      if ((inputSellerCNPJ.getText() != null && ! inputSellerCNPJ.getText().isEmpty())) {
+        if ((inputSellerWallet.getText() != null && ! inputSellerWallet.getText().isEmpty())) {
+          tableSeller.getItems().add(new Seller(inputSellerName.getText(), inputSellerCNPJ.getText(), Double.parseDouble(inputSellerWallet.getText())));
+        }
+      }
+    }
+
+    // Limpa os inputs
+    inputSellerName.setText("");
+    inputSellerCNPJ.setText("");
+    inputSellerWallet.setText("");
   }
 
   @FXML
@@ -102,7 +166,10 @@ public class Controller {
 
   @FXML
   public void handleCancelSeller(ActionEvent event) {
-    System.out.println("Botão cancelar vendedor funcionando!");
+    // Limpa os inputs
+    inputSellerName.setText("");
+    inputSellerCNPJ.setText("");
+    inputSellerWallet.setText("");
   }
 
   @FXML
@@ -110,15 +177,21 @@ public class Controller {
     System.out.println("Botão apagar vendedor funcionando!");
   }
 
-  @FXML
-  public void handleListSeller(ActionEvent event) {
-    System.out.println("Botão listar vendedor funcionando!");
-  }
-
   // Handle Product
   @FXML
   public void handleSaveProduct(ActionEvent event) {
-    System.out.println("Botão salvar produto funcionando!");
+    if ((inputProductName.getText() != null && ! inputProductName.getText().isEmpty())) {
+      if ((inputProductPrice.getText() != null && ! inputProductPrice.getText().isEmpty())) {
+        if ((inputProductBarcode.getText() != null && ! inputProductBarcode.getText().isEmpty())) {
+          tableProduct.getItems().add(new Product(inputProductName.getText(), Double.parseDouble(inputProductPrice.getText()), inputProductBarcode.getText()));
+        }
+      }
+    }
+
+    // Limpa os inputs
+    inputProductName.setText("");
+    inputProductPrice.setText("");
+    inputProductBarcode.setText("");
   }
 
   @FXML
@@ -128,7 +201,10 @@ public class Controller {
 
   @FXML
   public void handleCancelProduct(ActionEvent event) {
-    System.out.println("Botão cancelar produto funcionando!");
+    // Limpa os inputs
+    inputProductName.setText("");
+    inputProductPrice.setText("");
+    inputProductBarcode.setText("");
   }
 
   @FXML
@@ -136,35 +212,27 @@ public class Controller {
     System.out.println("Botão apagar produto funcionando!");
   }
 
+  // Handle BuySell
   @FXML
-  public void handleListProduct(ActionEvent event) {
-    System.out.println("Botão listar produto funcionando!");
-  }
-
-  // Handle Sell
-  @FXML
-  public void handleSaveSell(ActionEvent event) {
+  public void handleSaveBuySell(ActionEvent event) {
     System.out.println("Botão salvar venda funcionando!");
   }
 
   @FXML
-  public void handleEditSell(ActionEvent event) {
+  public void handleEditBuySell(ActionEvent event) {
     System.out.println("Botão editar venda funcionando!");
   }
 
   @FXML
-  public void handleCancelSell(ActionEvent event) {
-    System.out.println("Botão cancelar produto funcionando!");
+  public void handleCancelBuySell(ActionEvent event) {
+    // Limpa os inputs
+    inputBuySellClientCPF.setText("");
+    inputBuySellSellerCNPJ.setText("");
   }
 
   @FXML
-  public void handleDeleteSell(ActionEvent event) {
+  public void handleDeleteBuySell(ActionEvent event) {
     System.out.println("Botão apagar produto funcionando!");
-  }
-
-  @FXML
-  public void handleListSell(ActionEvent event) {
-    System.out.println("Botão listar venda funcionando!");
   }
 
   // Payment Method
