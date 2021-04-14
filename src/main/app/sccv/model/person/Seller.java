@@ -18,6 +18,11 @@ public class Seller extends Person {
 
   public Seller() {}
 
+  public Seller(String name, String cnpj, double wallet) {
+    super(name, wallet);
+    this.cnpj = cnpj;
+  }
+
   public String getCnpj() {
     return cnpj;
   }

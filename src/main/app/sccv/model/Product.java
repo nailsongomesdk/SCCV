@@ -8,9 +8,10 @@ public class Product {
   private double price;
   private String barcode;
 
-  public Product(String name, double price) {
+  public Product(String name, double price, String barcode) {
     this.name = name;
     this.price = price;
+    this.barcode = barcode;
   }
 
   public Product() {}

@@ -15,6 +15,11 @@ public class Buyer extends Person {
 
   public Buyer() {}
 
+  public Buyer(String name, String cpf, double wallet) {
+    super(name, wallet);
+    this.cpf = cpf;
+  }
+
   public String getCpf() {
     return cpf;
   }
