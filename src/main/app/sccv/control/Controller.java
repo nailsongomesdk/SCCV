@@ -36,8 +36,6 @@ public class Controller implements Initializable {
     @FXML
     public Button editClient;
     @FXML
-    public Button editAlterClient;
-    @FXML
     public Button cancelClient;
     @FXML
     public Button deleteClient;
@@ -197,9 +195,7 @@ public class Controller implements Initializable {
     @FXML
     public void handleCancelClient(ActionEvent event) {
         // Limpa os inputs
-        inputClientName.setText("");
-        inputClientCPF.setText("");
-        inputClientWallet.setText("");
+        cleanFields("Clientes");
     }
 
     @FXML
