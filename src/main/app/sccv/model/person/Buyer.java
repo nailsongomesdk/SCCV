@@ -9,48 +9,58 @@ import java.util.List;
 import java.util.Objects;
 
 public class Buyer extends Person {
-  private String cpf;
-  private List<BuySell> purchases = new ArrayList<>();
-  private List<Payment> amountsPayable = new ArrayList<>();
+    private String cpf;
+    private List<BuySell> purchases = new ArrayList<>();
+    private List<Payment> amountsPayable = new ArrayList<>();
 
-  public Buyer() {}
+    public Buyer() {
+    }
 
-  public Buyer(String name, String cpf, double wallet) {
-    super(name, wallet);
-    this.cpf = cpf;
-  }
+    public Buyer(String name, String cpf, double wallet) {
+        super(name, wallet);
+        this.cpf = cpf;
+    }
 
-  public String getCpf() {
-    return cpf;
-  }
+    public Buyer(Buyer clientTable) {
+        super(clientTable.getName(), clientTable.getWallet());
+        this.cpf = clientTable.getCpf();
+    }
 
-  public void setCpf(String cpf) {
-    this.cpf = cpf;
-  }
+    public String getCpf() {
+        return cpf;
+    }
 
-  public void setPurchases(BuySell purchases) {
-    this.purchases.add(purchases);
-  }
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
-  public void setAmountsPayable(Payment amountsPayable) {
-    this.amountsPayable.add(amountsPayable);
-  }
+    public void setPurchases(BuySell purchases) {
+        this.purchases.add(purchases);
+    }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) { return true; }
-    if (o == null || getClass() != o.getClass()) { return false; }
-    Buyer buyer = (Buyer) o;
-    return cpf.equals(buyer.cpf);
-  }
+    public void setAmountsPayable(Payment amountsPayable) {
+        this.amountsPayable.add(amountsPayable);
+    }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(cpf);
-  }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Buyer buyer = (Buyer) o;
+        return cpf.equals(buyer.cpf);
+    }
 
-  @Override
-  public String toString() {
-    return MessageFormat.format("\tComprador: {0}\n\tCPF: {1}\n\tCarteira: R${2}\n", getName(), getCpf(), getWallet());
-  }
+    @Override
+    public int hashCode() {
+        return Objects.hash(cpf);
+    }
+
+    @Override
+    public String toString() {
+        return MessageFormat.format("\tComprador: {0}\n\tCPF: {1}\n\tCarteira: R${2}\n", getName(), getCpf(), getWallet());
+    }
 }
