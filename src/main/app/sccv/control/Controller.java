@@ -2,7 +2,6 @@ package main.app.sccv.control;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,9 +12,7 @@ import main.app.sccv.model.payment.Payment;
 import main.app.sccv.model.person.Buyer;
 import main.app.sccv.model.person.Seller;
 
-import javax.swing.text.MaskFormatter;
 import java.net.URL;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -34,6 +31,16 @@ public class Controller implements Initializable {
     public TableColumn<Buyer, String> columnClientCPF;
     @FXML
     public TableColumn<Buyer, Double> columnClientWallet;
+    @FXML
+    public Button saveClient;
+    @FXML
+    public Button editClient;
+    @FXML
+    public Button editAlterClient;
+    @FXML
+    public Button cancelClient;
+    @FXML
+    public Button deleteClient;
     // Seller
     @FXML
     public TableView<Seller> tableSeller;
@@ -104,7 +111,7 @@ public class Controller implements Initializable {
       columnProductPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
       columnProductBarcode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
     }*/
-        atualiza();
+        update();
 
         tableClient.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
@@ -115,12 +122,28 @@ public class Controller implements Initializable {
         });
     }
 
-    private void atualiza() {
+    private void update() {
         tableClient.getItems().clear();
 
         for (Object item : buyersList) {
             tableClient.getItems().add((Buyer) item);
         }
+    }
+
+    private void cleanFields(String local){
+        switch (local){
+            case "Clientes":
+                inputClientName.setText("");
+                inputClientCPF.setText("");
+                inputClientWallet.setText("");
+                break;
+            case "Vendedor":
+                inputSellerName.setText("");
+                inputSellerWallet.setText("");
+                inputSellerCNPJ.setText("");
+
+        }
+
     }
 
     // Handle Client
@@ -132,45 +155,43 @@ public class Controller implements Initializable {
                     Buyer p = new Buyer(inputClientName.getText(), inputClientCPF.getText(), Double.parseDouble(inputClientWallet.getText()));
                     tableClient.getItems().add(p);
                     buyersList.add(p);
-                } else {
-                    Alert a = new Alert(Alert.AlertType.WARNING);
-                    a.setContentText("preencha o campo saldo");
-                    a.show();
                 }
-            } else {
-                Alert a = new Alert(Alert.AlertType.WARNING);
-                a.setContentText("preencha o campo cpf");
-                a.show();
             }
-        }else{
-            Alert a = new Alert(Alert.AlertType.WARNING);
-            a.setContentText("preencha o campo nome");
-            a.show();
         }
 
-//    // Adiciona máscara ao CPF
-//        try{
-//        MaskFormatter mask = new MaskFormatter("###.###.###-##");
-//        mask.setValueContainsLiteralCharacters(false);
-//        //comprador.setCpf(mask.valueToString(entry.nextLine()));
-//    } catch{(
-//    ParseException e)
-//
-//    {
-//        e.printStackTrace();
-//    }
 
-    // Limpa os inputs
-        inputClientName.setText("");
-        inputClientCPF.setText("");
-        inputClientWallet.setText("");
-}
+        // Limpa os inputs
+        cleanFields("Clientes");
+    }
 
     @FXML
     public void handleEditClient(ActionEvent event) {
-        inputClientName.setText(tableClient.getSelectionModel().getSelectedItem().getName());
-        inputClientCPF.setText(tableClient.getSelectionModel().getSelectedItem().getCpf());
-        inputClientWallet.setText(String.valueOf(tableClient.getSelectionModel().getSelectedItem().getWallet()));
+        Buyer clientTable = tableClient.getSelectionModel().getSelectedItem();
+
+        if("Editar".equals(editClient.getText())){
+            inputClientName.setText(clientTable.getName());
+            inputClientCPF.setText(clientTable.getCpf());
+            inputClientWallet.setText(String.valueOf(clientTable.getWallet()));
+
+            saveClient.setDisable(true);
+            deleteClient.setDisable(true);
+            editClient.setText("Salvar");
+        }else{
+            clientTable.setName(inputClientName.getText());
+            clientTable.setCpf(inputClientCPF.getText());
+            clientTable.setWallet(Double.parseDouble(inputClientWallet.getText()));
+
+            buyersList.set(tableClient.getSelectionModel().getSelectedIndex(), clientTable);
+
+
+            update();
+            saveClient.setDisable(false);
+            deleteClient.setDisable(false);
+            cleanFields("Clientes");
+            editClient.setText("Editar");
+        }
+
+
     }
 
     @FXML
@@ -185,7 +206,7 @@ public class Controller implements Initializable {
     public void handleDeleteClient(ActionEvent event) {
         int index = tableClient.getSelectionModel().getSelectedIndex();
         buyersList.remove(index);
-        atualiza();
+        update();
 
     }
 

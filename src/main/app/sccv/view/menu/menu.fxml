@@ -37,7 +37,7 @@
                                 <Label layoutX="285.0" layoutY="78.0" text="Saldo" />
                                 <Pane layoutX="545.0" layoutY="15.0" prefHeight="170.0" prefWidth="120.0">
                                     <children>
-                                        <Button layoutX="15.0" layoutY="9.0" mnemonicParsing="false" onAction="#handleSaveClient" prefHeight="25.0" prefWidth="91.0" text="Salvar">
+                                        <Button layoutX="15.0" layoutY="9.0" fx:id="saveClient" mnemonicParsing="false" onAction="#handleSaveClient" prefHeight="25.0" prefWidth="91.0" text="Salvar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
@@ -47,21 +47,21 @@
                                  <padding>
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding></Button>
-                                        <Button layoutX="15.0" layoutY="49.0" mnemonicParsing="false" onAction="#handleEditClient" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                                        <Button layoutX="15.0" layoutY="49.0" fx:id="editClient" mnemonicParsing="false" onAction="#handleEditClient" prefHeight="25.0" prefWidth="91.0" text="Editar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                  <padding>
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding></Button>
-                                        <Button layoutX="15.0" layoutY="89.0" mnemonicParsing="false" onAction="#handleCancelClient" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                                        <Button layoutX="15.0" layoutY="89.0" fx:id="cancelClient" mnemonicParsing="false" onAction="#handleCancelClient" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                  <padding>
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding></Button>
-                                        <Button layoutX="15.0" layoutY="129.0" mnemonicParsing="false" onAction="#handleDeleteClient" prefHeight="25.0" prefWidth="91.0" text="Apagar">
+                                        <Button layoutX="15.0" layoutY="129.0" fx:id="deleteClient" mnemonicParsing="false" onAction="#handleDeleteClient" prefHeight="25.0" prefWidth="91.0" text="Apagar">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
