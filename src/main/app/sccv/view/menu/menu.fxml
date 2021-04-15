@@ -3,9 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -13,90 +11,64 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.app.sccv.control.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.app.sccv.control.Controller">
     <children>
-        <TabPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="463.0" prefWidth="678.0" tabClosingPolicy="UNAVAILABLE">
+        <TabPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
-                <Tab text="Cliente">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                            <children>
-                                <TableView fx:id="tableClient" layoutX="14.0" layoutY="202.0" prefHeight="216.0" prefWidth="651.0">
-                                    <columns>
-                                        <TableColumn fx:id="columnClientName" prefWidth="350.0" text="Nome" />
-                                        <TableColumn fx:id="columnClientCPF" minWidth="0.0" prefWidth="150.0" text="CPF" />
-                                        <TableColumn fx:id="columnClientWallet" prefWidth="150.0" text="Saldo" />
-                                    </columns>
-                                </TableView>
-                                <TextField fx:id="inputClientName" layoutX="29.0" layoutY="38.0" prefHeight="25.0" prefWidth="427.0" />
-                                <Label layoutX="29.0" layoutY="21.0" text="Nome" />
-                                <TextField fx:id="inputClientCPF" layoutX="29.0" layoutY="95.0" />
-                                <Label layoutX="29.0" layoutY="78.0" text="CPF" />
-                                <TextField fx:id="inputClientWallet" layoutX="285.0" layoutY="95.0" />
-                                <Label layoutX="285.0" layoutY="78.0" text="Saldo" />
-                                <Pane layoutX="545.0" layoutY="15.0" prefHeight="170.0" prefWidth="120.0">
-                                    <children>
-                                        <Button layoutX="15.0" layoutY="9.0" fx:id="saveClient" mnemonicParsing="false" onAction="#handleSaveClient" prefHeight="25.0" prefWidth="91.0" text="Salvar">
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets bottom="8.0" top="8.0" />
-                                 </padding></Button>
-                                        <Button layoutX="15.0" layoutY="49.0" fx:id="editClient" mnemonicParsing="false" onAction="#handleEditClient" prefHeight="25.0" prefWidth="91.0" text="Editar">
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
-                                 <padding>
-                                    <Insets bottom="8.0" top="8.0" />
-                                 </padding></Button>
-                                        <Button layoutX="15.0" layoutY="89.0" fx:id="cancelClient" mnemonicParsing="false" onAction="#handleCancelClient" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
-                                 <padding>
-                                    <Insets bottom="8.0" top="8.0" />
-                                 </padding></Button>
-                                        <Button layoutX="15.0" layoutY="129.0" fx:id="deleteClient" mnemonicParsing="false" onAction="#handleDeleteClient" prefHeight="25.0" prefWidth="91.0" text="Apagar">
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
-                                 <padding>
-                                    <Insets bottom="8.0" top="8.0" />
-                                 </padding></Button>
-                                    </children>
-                           <padding>
-                              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
-                           </padding>
-                                </Pane>
-                            </children>
-                        </AnchorPane>
-                    </content>
-                </Tab>
-                <Tab text="Vendedor">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                            <children>
-                                <TableView fx:id="tableSeller" layoutX="14.0" layoutY="202.0" prefHeight="216.0" prefWidth="651.0">
-                                    <columns>
-                                        <TableColumn fx:id="columnSellerName" prefWidth="350.0" text="Nome" />
-                                        <TableColumn fx:id="columnSellerCNPJ" minWidth="0.0" prefWidth="150.0" text="CNPJ" />
-                                        <TableColumn fx:id="columnSellerWallet" prefWidth="150.0" text="Saldo" />
-                                    </columns>
-                                </TableView>
-                                <TextField fx:id="inputSellerName" layoutX="29.0" layoutY="38.0" prefHeight="25.0" prefWidth="427.0" />
-                                <Label layoutX="29.0" layoutY="21.0" text="Nome" />
-                                <TextField fx:id="inputSellerCNPJ" layoutX="29.0" layoutY="95.0" />
-                                <Label layoutX="29.0" layoutY="78.0" text="CNPJ" />
-                                <TextField fx:id="inputSellerWallet" layoutX="285.0" layoutY="95.0" />
-                                <Label layoutX="285.0" layoutY="78.0" text="Saldo" />
-                        <Pane layoutX="545.0" layoutY="15.0" prefHeight="170.0" prefWidth="120.0">
+            <Tab text="Cliente">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="16.0" layoutY="16.0" prefHeight="192.0" prefWidth="768.0">
                            <children>
-                              <Button layoutX="15.0" layoutY="9.0" mnemonicParsing="false" onAction="#handleSaveSeller" prefHeight="25.0" prefWidth="91.0" text="Salvar">
+                              <TextField fx:id="clientNameInput" layoutX="16.0" layoutY="48.0" prefHeight="32.0" prefWidth="352.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                              <Label layoutX="16.0" layoutY="16.0" text="Nome">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="clientCPFInput" layoutX="400.0" layoutY="48.0" prefHeight="32.0" prefWidth="352.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                              <Label layoutX="400.0" layoutY="16.0" text="CPF">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
+                              <Label layoutX="16.0" layoutY="96.0" text="Saldo">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="clientWalletInput" layoutX="16.0" layoutY="128.0" prefHeight="32.0" prefWidth="176.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="16.0" layoutY="224.0" prefHeight="256.0" prefWidth="768.0">
+                           <children>
+                              <TableView fx:id="clientTable" layoutX="16.0" layoutY="16.0" prefHeight="224.0" prefWidth="736.0">
+                                 <columns>
+                                    <TableColumn fx:id="clientNameColumn" prefWidth="436.0" text="Nome" />
+                                    <TableColumn fx:id="clientCPFColumn" prefWidth="150.0" text="CPF" />
+                                    <TableColumn fx:id="clientWalletColumn" prefWidth="150.0" text="Saldo" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="16.0" layoutY="496.0" prefHeight="48.0" prefWidth="492.0">
+                           <children>
+                              <Button fx:id="clientSaveButton" layoutX="16.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleSaveClient" prefHeight="25.0" prefWidth="91.0" text="Salvar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -107,7 +79,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button layoutX="15.0" layoutY="49.0" mnemonicParsing="false" onAction="#handleEditSeller" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                              <Button fx:id="clientEditButton" layoutX="139.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleEditClient" prefHeight="25.0" prefWidth="91.0" text="Editar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -115,7 +87,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button layoutX="15.0" layoutY="89.0" mnemonicParsing="false" onAction="#handleCancelSeller" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                              <Button fx:id="clientCancelButton" layoutX="262.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleCancelClient" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -123,7 +95,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button layoutX="15.0" layoutY="129.0" mnemonicParsing="false" onAction="#handleDeleteSeller" prefHeight="25.0" prefWidth="91.0" text="Apagar">
+                              <Button fx:id="clientDeleteButton" layoutX="385.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleDeleteClient" prefHeight="25.0" prefWidth="91.0" text="Deletar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -136,30 +108,62 @@
                               <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                            </padding>
                         </Pane>
-                            </children>
-                        </AnchorPane>
-                    </content>
-                </Tab>
-                <Tab text="Produto">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                            <children>
-                                <TableView layoutX="14.0" layoutY="202.0" prefHeight="216.0" prefWidth="651.0">
-                                    <columns>
-                                        <TableColumn fx:id="columnProductName" prefWidth="350.0" text="Nome" />
-                                        <TableColumn fx:id="columnProductPrice" minWidth="0.0" prefWidth="150.0" text="Preço" />
-                                        <TableColumn fx:id="columnProductBarcode" prefWidth="150.0" text="Codigo Barras" />
-                                    </columns>
-                                </TableView>
-                                <TextField fx:id="inputProductName" layoutX="29.0" layoutY="38.0" prefHeight="25.0" prefWidth="427.0" />
-                                <Label layoutX="29.0" layoutY="21.0" text="Nome" />
-                                <TextField fx:id="inputProductPrice" layoutX="29.0" layoutY="95.0" />
-                                <Label layoutX="29.0" layoutY="78.0" text="Preço" />
-                                <TextField fx:id="inputProductBarcode" layoutX="285.0" layoutY="95.0" />
-                                <Label layoutX="285.0" layoutY="78.0" text="Codigo de barras" />
-                        <Pane layoutX="545.0" layoutY="15.0" prefHeight="170.0" prefWidth="120.0">
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Vendedor">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="16.0" layoutY="16.0" prefHeight="192.0" prefWidth="768.0">
                            <children>
-                              <Button layoutX="15.0" layoutY="9.0" mnemonicParsing="false" onAction="#handleSaveProduct" prefHeight="25.0" prefWidth="91.0" text="Salvar">
+                              <TextField fx:id="sellerNameInput" layoutX="16.0" layoutY="48.0" prefHeight="32.0" prefWidth="352.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                              <Label layoutX="16.0" layoutY="16.0" text="Nome">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="sellerCNPJInput" layoutX="400.0" layoutY="48.0" prefHeight="32.0" prefWidth="352.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                              <Label layoutX="400.0" layoutY="16.0" text="CNPJ">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
+                              <Label layoutX="16.0" layoutY="96.0" text="Saldo">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="sellerWalletInput" layoutX="16.0" layoutY="128.0" prefHeight="32.0" prefWidth="176.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="16.0" layoutY="224.0" prefHeight="256.0" prefWidth="768.0">
+                           <children>
+                              <TableView fx:id="sellerTable" layoutX="16.0" layoutY="16.0" prefHeight="224.0" prefWidth="736.0">
+                                 <columns>
+                                    <TableColumn fx:id="sellerNameColumn" prefWidth="436.0" text="Nome" />
+                                    <TableColumn fx:id="sellerCPFColumn" prefWidth="150.0" text="CNPJ" />
+                                    <TableColumn fx:id="sellerWalletColumn" prefWidth="150.0" text="Saldo" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="16.0" layoutY="496.0" prefHeight="48.0" prefWidth="492.0">
+                           <children>
+                              <Button fx:id="sellerSaveButton" layoutX="16.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleSaveSeller" prefHeight="25.0" prefWidth="91.0" text="Salvar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -170,7 +174,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button layoutX="15.0" layoutY="49.0" mnemonicParsing="false" onAction="#handleEditProduct" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                              <Button fx:id="sellerEditButton" layoutX="139.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleEditSeller" prefHeight="25.0" prefWidth="91.0" text="Editar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -178,7 +182,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button layoutX="15.0" layoutY="89.0" mnemonicParsing="false" onAction="#handleCancelProduct" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                              <Button fx:id="sellerCancelButton" layoutX="262.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleCancelSeller" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -186,7 +190,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button layoutX="15.0" layoutY="129.0" mnemonicParsing="false" onAction="#handleDeleteProduct" prefHeight="25.0" prefWidth="91.0" text="Apagar">
+                              <Button fx:id="sellerDeleteButton" layoutX="385.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleDeleteSeller" prefHeight="25.0" prefWidth="91.0" text="Deletar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -199,28 +203,62 @@
                               <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                            </padding>
                         </Pane>
-                            </children>
-                        </AnchorPane>
-                    </content>
-                </Tab>
-                <Tab fx:id="tableBuySell" text="Venda">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                            <children>
-                                <TextField fx:id="inputBuySellClientCPF" layoutX="28.0" layoutY="39.0" />
-                                <Label layoutX="28.0" layoutY="22.0" text="CPF Comprador" />
-                                <TextField fx:id="inputBuySellSellerCNPJ" layoutX="284.0" layoutY="39.0" />
-                                <Label layoutX="284.0" layoutY="22.0" text="CNPJ Vendedor" />
-                                <ListView layoutX="14.0" layoutY="202.0" prefHeight="216.0" prefWidth="651.0" />
-                        <Label layoutX="29.0" layoutY="78.0" text="Pagamento" />
-                        <ChoiceBox layoutX="29.0" layoutY="95.0" onAction="#handleSelectPaymentMethod" prefHeight="24.0" prefWidth="171.0">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ChoiceBox>
-                        <Pane layoutX="545.0" layoutY="15.0" prefHeight="170.0" prefWidth="120.0">
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Produto">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="16.0" layoutY="16.0" prefHeight="192.0" prefWidth="768.0">
                            <children>
-                              <Button layoutX="15.0" layoutY="9.0" mnemonicParsing="false" onAction="#handleSaveBuySell" prefHeight="25.0" prefWidth="91.0" text="Salvar">
+                              <TextField fx:id="productNameInput" layoutX="16.0" layoutY="48.0" prefHeight="32.0" prefWidth="352.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                              <Label layoutX="16.0" layoutY="16.0" text="Nome">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="productBarcodeInput" layoutX="400.0" layoutY="48.0" prefHeight="32.0" prefWidth="352.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                              <Label layoutX="400.0" layoutY="16.0" text="Codigo de barras">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
+                              <Label layoutX="16.0" layoutY="96.0" text="Valor">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="productPriceInput" layoutX="16.0" layoutY="128.0" prefHeight="32.0" prefWidth="176.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="16.0" layoutY="224.0" prefHeight="256.0" prefWidth="768.0">
+                           <children>
+                              <TableView fx:id="productTable" layoutX="16.0" layoutY="16.0" prefHeight="224.0" prefWidth="736.0">
+                                 <columns>
+                                    <TableColumn fx:id="productBarcodeColumn" prefWidth="150.0" text="Codigo" />
+                                    <TableColumn fx:id="productNameColumn" prefWidth="436.0" text="Produto" />
+                                    <TableColumn fx:id="productPriceColumn" prefWidth="150.0" text="Valor" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="16.0" layoutY="496.0" prefHeight="48.0" prefWidth="492.0">
+                           <children>
+                              <Button fx:id="productSaveButton" layoutX="16.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleSaveProduct" prefHeight="25.0" prefWidth="91.0" text="Salvar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -231,7 +269,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button layoutX="15.0" layoutY="49.0" mnemonicParsing="false" onAction="#handleEditBuySell" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                              <Button fx:id="productEditButton" layoutX="139.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleEditProduct" prefHeight="25.0" prefWidth="91.0" text="Editar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -239,7 +277,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button layoutX="15.0" layoutY="89.0" mnemonicParsing="false" onAction="#handleCancelBuySell" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                              <Button fx:id="productCancelButton" layoutX="262.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleCancelProduct" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -247,7 +285,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button layoutX="15.0" layoutY="129.0" mnemonicParsing="false" onAction="#handleDeleteBuySell" prefHeight="25.0" prefWidth="91.0" text="Apagar">
+                              <Button fx:id="productDeleteButton" layoutX="385.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleDeleteProduct" prefHeight="25.0" prefWidth="91.0" text="Deletar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -260,22 +298,52 @@
                               <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                            </padding>
                         </Pane>
-                            </children>
-                        </AnchorPane>
-                    </content>
-                </Tab>
-                <Tab text="Financeiro">
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+                <Tab text="Venda">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TextField layoutX="28.0" layoutY="39.0" />
-                                <Label layoutX="28.0" layoutY="22.0" text="CPF Comprador" />
-                                <TextField layoutX="284.0" layoutY="39.0" />
-                                <Label layoutX="284.0" layoutY="22.0" text="CNPJ Vendedor" />
-                                <ListView layoutX="14.0" layoutY="202.0" prefHeight="216.0" prefWidth="651.0" />
-                        <Pane layoutX="545.0" layoutY="15.0" prefHeight="170.0" prefWidth="120.0">
+                        <Pane layoutX="16.0" layoutY="16.0" prefHeight="192.0" prefWidth="768.0">
                            <children>
-                              <Button layoutX="15.0" layoutY="9.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Salvar">
+                                      <TextField fx:id="buySellCNPJSellerInput" layoutX="16.0" layoutY="48.0" prefHeight="32.0" prefWidth="352.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                                      <Label layoutX="16.0" layoutY="16.0" text="CNPJ Vendedor">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
+                                      <TextField fx:id="buySellCPFClientInput" layoutX="400.0" layoutY="48.0" prefHeight="32.0" prefWidth="352.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                                      <Label layoutX="400.0" layoutY="16.0" text="CPF Comprador">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
+                              <Label layoutX="16.0" layoutY="96.0" text="Codigo produto">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="buySellProductCodeInput" layoutX="16.0" layoutY="128.0" prefHeight="24.0" prefWidth="128.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                              <TextField fx:id="buySellProductNameInput" disable="true" layoutX="176.0" layoutY="128.0" prefHeight="32.0" prefWidth="448.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                              <Button fx:id="buySellAddButton" layoutX="661.0" layoutY="128.0" mnemonicParsing="false" onAction="#handleAddProductBuySell" prefHeight="25.0" prefWidth="91.0" text="Adicionar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -283,10 +351,30 @@
                                     <Insets />
                                  </opaqueInsets>
                                  <padding>
-                                    <Insets bottom="8.0" top="8.0" />
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button layoutX="15.0" layoutY="49.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                              <Label layoutX="176.0" layoutY="96.0" text="Nome produto">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="16.0" layoutY="224.0" prefHeight="256.0" prefWidth="768.0">
+                           <children>
+                              <TableView fx:id="buySellTable" layoutX="16.0" layoutY="16.0" prefHeight="224.0" prefWidth="736.0">
+                                 <columns>
+                                    <TableColumn fx:id="buySellProductCodeColumn" minWidth="0.0" prefWidth="150.0" text="Codigo" />
+                                    <TableColumn fx:id="buySellProductNameColumn" prefWidth="436.0" text="Produto" />
+                                    <TableColumn fx:id="buySellProductPriceColumn" prefWidth="150.0" text="Valor" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="16.0" layoutY="496.0" prefHeight="48.0" prefWidth="492.0">
+                           <children>
+                              <Button fx:id="buySellEditButton" layoutX="16.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleEditBuySell" prefHeight="25.0" prefWidth="91.0" text="Editar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -294,7 +382,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button layoutX="15.0" layoutY="89.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                              <Button fx:id="buySellCancelButton" layoutX="139.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleCancelBuySell" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -302,7 +390,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button layoutX="15.0" layoutY="129.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Apagar">
+                              <Button fx:id="buySellDeleteButton" layoutX="262.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleDeleteBuySell" prefHeight="25.0" prefWidth="91.0" text="Deletar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -315,10 +403,161 @@
                               <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                            </padding>
                         </Pane>
+                        <Pane layoutX="508.0" layoutY="497.0" prefHeight="46.0" prefWidth="276.0">
+                           <padding>
+                              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                           </padding>
+                           <children>
+                              <TextField fx:id="buySellTotalInput" disable="true" layoutX="80.0" layoutY="7.0" prefHeight="32.0" prefWidth="180.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                              <Label layoutX="16.0" layoutY="7.0" text="TOTAL" wrapText="true">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
                             </children>
                         </AnchorPane>
                     </content>
                 </Tab>
+            <Tab text="Financeiro">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="16.0" layoutY="16.0" prefHeight="192.0" prefWidth="768.0">
+                           <children>
+                              <TextField layoutX="16.0" layoutY="48.0" prefHeight="32.0" prefWidth="352.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                              <Label layoutX="16.0" layoutY="16.0" text="CNPJ Vendedor">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
+                              <TextField layoutX="400.0" layoutY="48.0" prefHeight="32.0" prefWidth="352.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                              <Label layoutX="400.0" layoutY="16.0" text="CPF Comprador">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
+                              <Label layoutX="16.0" layoutY="96.0" text="Adicionar produto">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
+                              <TextField layoutX="16.0" layoutY="128.0" prefHeight="24.0" prefWidth="128.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                              <TextField disable="true" layoutX="176.0" layoutY="128.0" prefHeight="32.0" prefWidth="448.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                              <Button layoutX="661.0" layoutY="128.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Adicionar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </Button>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="16.0" layoutY="224.0" prefHeight="256.0" prefWidth="768.0">
+                           <children>
+                              <TableView layoutX="16.0" layoutY="16.0" prefHeight="224.0" prefWidth="736.0">
+                                 <columns>
+                                    <TableColumn minWidth="0.0" prefWidth="150.0" text="Codigo" />
+                                    <TableColumn prefWidth="436.0" text="Produto" />
+                                    <TableColumn prefWidth="150.0" text="Valor" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="16.0" layoutY="496.0" prefHeight="48.0" prefWidth="492.0">
+                           <children>
+                              <Button layoutX="16.0" layoutY="7.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Salvar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Button>
+                              <Button layoutX="139.0" layoutY="7.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Button>
+                              <Button layoutX="262.0" layoutY="7.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Button>
+                              <Button layoutX="385.0" layoutY="7.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Deletar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                           </padding>
+                        </Pane>
+                        <Pane layoutX="508.0" layoutY="497.0" prefHeight="46.0" prefWidth="276.0">
+                           <padding>
+                              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                           </padding>
+                           <children>
+                              <TextField disable="true" layoutX="80.0" layoutY="7.0" prefHeight="32.0" prefWidth="180.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                              <Label layoutX="16.0" layoutY="7.0" text="TOTAL" wrapText="true">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
             </tabs>
         </TabPane>
     </children>

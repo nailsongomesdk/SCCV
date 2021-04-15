@@ -12,7 +12,7 @@ public class Main extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("view/menu/menu.fxml"));
             primaryStage.setTitle("Sistema de cadastro de compra e venda");
-            primaryStage.setScene(new Scene(root, 678, 463));
+            primaryStage.setScene(new Scene(root, 800, 600));
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
