@@ -1,7 +1,5 @@
 package main.app.sccv.control;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -46,8 +44,6 @@ public class Controller implements Initializable {
   private TableColumn<Buyer, String> clientCPFColumn;
   @FXML
   private TableColumn<Buyer, Double> clientWalletColumn;
-  @FXML
-  private Buyer selectedBuyer;
 
   // Seller
   @FXML
@@ -98,8 +94,6 @@ public class Controller implements Initializable {
   private TableColumn<Product, Double> productPriceColumn;
   @FXML
   private TableColumn<Product, String> productBarcodeColumn;
-  @FXML
-  private Product selectedProduct;
 
   // BuySell
   @FXML
@@ -333,7 +327,7 @@ public class Controller implements Initializable {
   }
 
   @FXML
-  public void handleEditBuySell(ActionEvent event) {
+  public void handleEditBuySell() {
     System.out.println("Botão editar venda funcionando!");
   }
 
