@@ -155,7 +155,7 @@
                               <TableView fx:id="sellerTable" layoutX="16.0" layoutY="16.0" prefHeight="224.0" prefWidth="736.0">
                                  <columns>
                                     <TableColumn fx:id="sellerNameColumn" prefWidth="436.0" text="Nome" />
-                                    <TableColumn fx:id="sellerCPFColumn" prefWidth="150.0" text="CNPJ" />
+                                    <TableColumn fx:id="sellerCNPJColumn" prefWidth="150.0" text="CNPJ" />
                                     <TableColumn fx:id="sellerWalletColumn" prefWidth="150.0" text="Saldo" />
                                  </columns>
                               </TableView>

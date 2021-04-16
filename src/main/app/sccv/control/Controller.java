@@ -137,42 +137,33 @@ public class Controller implements Initializable {
 
   @Override
   public void initialize(URL location, ResourceBundle resource) {
-    // Verifica se é a tabela de clientes
-    //if (clientTable) {}
+
     clientNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
     clientCPFColumn.setCellValueFactory(new PropertyValueFactory<>("cpf"));
     clientWalletColumn.setCellValueFactory(new PropertyValueFactory<>("wallet"));
 
-    // Verifica se é a tabela de vendedores
-    /*if (sellerTable) {
-      sellerNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-      sellerCNPJColumn.setCellValueFactory(new PropertyValueFactory<>("cnpj"));
-      sellerWalletColumn.setCellValueFactory(new PropertyValueFactory<>("wallet"));
-    }*/
+    sellerNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+    sellerCNPJColumn.setCellValueFactory(new PropertyValueFactory<>("cnpj"));
+    sellerWalletColumn.setCellValueFactory(new PropertyValueFactory<>("wallet"));
 
-    // Verifica se é a tabela de produtos
-    /*if (productTable) {
-      productNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-      productPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-      productBarcodeColumn.setCellValueFactory(new PropertyValueFactory<>("barcode"));
-    }*/
-    update();
+    productNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+    productPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+    productBarcodeColumn.setCellValueFactory(new PropertyValueFactory<>("barcode"));
 
-    clientTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
-      @Override
-      public void changed(ObservableValue observableValue, Object oldValue, Object newValue) {
-        selectedBuyer = (Buyer) newValue;
-      }
-    });
+    buySellProductCodeColumn.setCellValueFactory(new PropertyValueFactory<>("code"));
+    buySellProductCodeColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+    buySellProductCodeColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+
   }
 
-  private void update() {
-    clientTable.getItems().clear();
-
-    for (Object item : buyersList) {
-      clientTable.getItems().add((Buyer) item);
+  private void getUpdate(TableView table, List array){
+    table.getItems().clear();
+    for(Object item : array){
+      table.getItems().add(item);
     }
   }
+
 
   private void cleanFields(String local) {
     switch (local) {
@@ -206,8 +197,20 @@ public class Controller implements Initializable {
           Buyer p = new Buyer(clientNameInput.getText(), clientCPFInput.getText(), Double.parseDouble(clientWalletInput.getText()));
           clientTable.getItems().add(p);
           buyersList.add(p);
+        }else{
+          Alert alerta = new Alert(Alert.AlertType.WARNING);
+          alerta.setContentText("por favor, insira um valor no saldo");
+          alerta.show();
         }
+      }else{
+        Alert alerta = new Alert(Alert.AlertType.WARNING);
+        alerta.setContentText("por favor, insira um cpf");
+        alerta.show();
       }
+    }else{
+      Alert alerta = new Alert(Alert.AlertType.WARNING);
+      alerta.setContentText("por favor, insira o nome do cliente");
+      alerta.show();
     }
 
     // Limpa os inputs
@@ -233,7 +236,7 @@ public class Controller implements Initializable {
 
       buyersList.set(clientTable.getSelectionModel().getSelectedIndex(), buyerTable);
 
-      update();
+      getUpdate(clientTable, buyersList);
       clientSaveButton.setDisable(false);
       clientDeleteButton.setDisable(false);
       cleanFields("clients");
@@ -243,15 +246,18 @@ public class Controller implements Initializable {
 
   @FXML
   public void handleCancelClient(ActionEvent event) {
-    // Limpa os inputs
     cleanFields("clients");
+    clientEditButton.setText("Editar");
+    clientSaveButton.setDisable(false);
+    clientDeleteButton.setDisable(false);
+    clientNameInput.requestFocus();
   }
 
   @FXML
   public void handleDeleteClient(ActionEvent event) {
     int index = clientTable.getSelectionModel().getSelectedIndex();
     buyersList.remove(index);
-    update();
+    getUpdate(clientTable, buyersList);
 
   }
 

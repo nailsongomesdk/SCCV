@@ -23,6 +23,12 @@ public class Seller extends Person {
     this.cnpj = cnpj;
   }
 
+  public Seller(Seller sellerTable) {
+    super(sellerTable.getName(), sellerTable.getWallet());
+    this.cnpj = sellerTable.getCnpj();
+  }
+
+
   public String getCnpj() {
     return cnpj;
   }
