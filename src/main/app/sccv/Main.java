@@ -12,12 +12,12 @@ public class Main extends Application {
   }
 
   @Override
-  public void start(Stage primaryStage) {
+  public void start(Stage mainStage) {
     try {
       Parent root = FXMLLoader.load(getClass().getResource("view/menu/menu.fxml"));
-      primaryStage.setTitle("Sistema de cadastro de compra e venda");
-      primaryStage.setScene(new Scene(root, 800, 600));
-      primaryStage.show();
+      mainStage.setTitle("Sistema de cadastro de compra e venda");
+      mainStage.setScene(new Scene(root, 800, 600));
+      mainStage.show();
     } catch (Exception e) {
       e.printStackTrace();
     }
