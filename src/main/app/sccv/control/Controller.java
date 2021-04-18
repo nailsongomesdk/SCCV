@@ -14,6 +14,7 @@ import main.app.sccv.model.person.Seller;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -151,35 +152,49 @@ public class Controller implements Initializable {
 
   }
 
-  private void getUpdate(TableView table, List array){
+  private void getUpdate(TableView table, List array) {
     table.getItems().clear();
-    for(Object item : array){
+    for (Object item : array) {
       table.getItems().add(item);
     }
   }
 
-
-  private void cleanFields(String local) {
-    switch (local) {
-      case "clients":
-        clientNameInput.setText("");
-        clientCPFInput.setText("");
-        clientWalletInput.setText("");
-        break;
-      case "seller":
-        sellerNameInput.setText("");
-        sellerWalletInput.setText("");
-        sellerCNPJInput.setText("");
-        break;
-      case "product":
-        productNameInput.setText("");
-        productBarcodeInput.setText("");
-        productPriceInput.setText("");
-        break;
-      case "buysell":
-        buySellCNPJSellerInput.setText("");
-        buySellCPFClientInput.setText("");
+  private void cleanFields(TextField... params) {
+    for (TextField input : params) {
+      input.setText("");
     }
+  }
+
+  private void deleteFunction(TableView table, List list) {
+    try {
+      int index = table.getSelectionModel().getSelectedIndex();
+      list.remove(index);
+      getUpdate(table, list);
+    } catch (Exception e) {
+      alert("error", e.getMessage());
+    }
+  }
+
+  private void alert(String type, String erro) {
+    switch (type.toUpperCase(Locale.ROOT)) {
+      case "WARNING":
+        Alert alertaWarning = new Alert(Alert.AlertType.WARNING);
+        alertaWarning.setContentText("por favor, preencha os campos em branco");
+        alertaWarning.show();
+        break;
+      case "ERROR":
+        Alert alertaError = new Alert(Alert.AlertType.ERROR);
+        alertaError.setContentText(erro);
+        alertaError.show();
+        break;
+      case "CONFIRM":
+        Alert alertaConfirm = new Alert(Alert.AlertType.ERROR);
+        alertaConfirm.setContentText("cadastro realizado com sucesso");
+        alertaConfirm.show();
+        break;
+    }
+
+
   }
 
   // Handle Client
@@ -191,24 +206,18 @@ public class Controller implements Initializable {
           Buyer p = new Buyer(clientNameInput.getText(), clientCPFInput.getText(), Double.parseDouble(clientWalletInput.getText()));
           clientTable.getItems().add(p);
           buyersList.add(p);
-        }else{
-          Alert alerta = new Alert(Alert.AlertType.WARNING);
-          alerta.setContentText("por favor, insira um valor no saldo");
-          alerta.show();
+        } else {
+          alert("Warning", "");
         }
-      }else{
-        Alert alerta = new Alert(Alert.AlertType.WARNING);
-        alerta.setContentText("por favor, insira um cpf");
-        alerta.show();
+      } else {
+        alert("warning", "");
       }
-    }else{
-      Alert alerta = new Alert(Alert.AlertType.WARNING);
-      alerta.setContentText("por favor, insira o nome do cliente");
-      alerta.show();
+    } else {
+      alert("warning", "");
     }
 
     // Limpa os inputs
-    cleanFields("clients");
+    cleanFields(clientNameInput, clientCPFInput, clientWalletInput);
   }
 
   @FXML
@@ -230,17 +239,18 @@ public class Controller implements Initializable {
 
       buyersList.set(clientTable.getSelectionModel().getSelectedIndex(), buyerTable);
 
+
       getUpdate(clientTable, buyersList);
       clientSaveButton.setDisable(false);
       clientDeleteButton.setDisable(false);
-      cleanFields("clients");
+      cleanFields(clientNameInput, clientCPFInput, clientWalletInput);
       clientEditButton.setText("Editar");
     }
   }
 
   @FXML
   public void handleCancelClient(ActionEvent event) {
-    cleanFields("clients");
+    cleanFields(clientNameInput, clientCPFInput, clientWalletInput);
     clientEditButton.setText("Editar");
     clientSaveButton.setDisable(false);
     clientDeleteButton.setDisable(false);
@@ -249,10 +259,7 @@ public class Controller implements Initializable {
 
   @FXML
   public void handleDeleteClient(ActionEvent event) {
-    int index = clientTable.getSelectionModel().getSelectedIndex();
-    buyersList.remove(index);
-    getUpdate(clientTable, buyersList);
-
+    deleteFunction(clientTable, buyersList);
   }
 
   // Handle Seller
@@ -261,31 +268,54 @@ public class Controller implements Initializable {
     if ((sellerNameInput.getText() != null && ! sellerNameInput.getText().isEmpty())) {
       if ((sellerCNPJInput.getText() != null && ! sellerCNPJInput.getText().isEmpty())) {
         if ((sellerWalletInput.getText() != null && ! sellerWalletInput.getText().isEmpty())) {
-          sellerTable.getItems().add(new Seller(sellerNameInput.getText(), sellerCNPJInput.getText(), Double.parseDouble(sellerWalletInput.getText())));
+          Seller s = new Seller(sellerNameInput.getText(), sellerCNPJInput.getText(), Double.parseDouble(sellerWalletInput.getText()));
+          sellerTable.getItems().add(s);
+          sellersList.add(s);
         }
       }
     }
 
     // Limpa os inputs
-    cleanFields("seller");
+    cleanFields(sellerNameInput, sellerCNPJInput, sellerWalletInput);
   }
 
   @FXML
   public void handleEditSeller(ActionEvent event) {
-    System.out.println("Botão editar vendedor funcionando!");
+    Seller seller = sellerTable.getSelectionModel().getSelectedItem();
+
+    if ("Editar".equals(sellerEditButton.getText())) {
+      sellerNameInput.setText(seller.getName());
+      sellerCNPJInput.setText(seller.getCnpj());
+      sellerWalletInput.setText(String.valueOf(seller.getWallet()));
+
+      sellerSaveButton.setDisable(true);
+      sellerDeleteButton.setDisable(true);
+      sellerEditButton.setText("Salvar");
+    } else {
+      seller.setName(sellerNameInput.getText());
+      seller.setCnpj(sellerCNPJInput.getText());
+      seller.setWallet(Double.parseDouble(sellerWalletInput.getText()));
+
+      sellersList.set(sellerTable.getSelectionModel().getSelectedIndex(), seller);
+
+
+      getUpdate(sellerTable, sellersList);
+      sellerSaveButton.setDisable(false);
+      sellerDeleteButton.setDisable(false);
+      cleanFields(sellerNameInput, sellerCNPJInput, sellerWalletInput);
+      sellerEditButton.setText("Editar");
+    }
   }
+
 
   @FXML
   public void handleCancelSeller(ActionEvent event) {
-    // Limpa os inputs
-    sellerNameInput.setText("");
-    sellerCNPJInput.setText("");
-    sellerWalletInput.setText("");
+    cleanFields(sellerNameInput, sellerCNPJInput, sellerWalletInput);
   }
 
   @FXML
   public void handleDeleteSeller(ActionEvent event) {
-    System.out.println("Botão apagar vendedor funcionando!");
+    deleteFunction(sellerTable, sellersList);
   }
 
   // Handle Product
@@ -294,31 +324,53 @@ public class Controller implements Initializable {
     if ((productNameInput.getText() != null && ! productNameInput.getText().isEmpty())) {
       if ((productBarcodeInput.getText() != null && ! productBarcodeInput.getText().isEmpty())) {
         if ((productPriceInput.getText() != null && ! productPriceInput.getText().isEmpty())) {
-          productTable.getItems().add(new Product(productNameInput.getText(), Double.parseDouble(productBarcodeInput.getText()), productPriceInput.getText()));
+          Product p = new Product(productNameInput.getText(), Double.parseDouble(productPriceInput.getText()), productBarcodeInput.getText());
+          productTable.getItems().add(p);
+          cartList.add(p);
         }
       }
     }
 
     // Limpa os inputs
-    cleanFields("product");
+    cleanFields(productNameInput, productBarcodeInput, productPriceInput);
   }
 
   @FXML
   public void handleEditProduct(ActionEvent event) {
-    System.out.println("Botão editar produto funcionando!");
+    Product product = productTable.getSelectionModel().getSelectedItem();
+
+    if ("Editar".equals(productEditButton.getText())) {
+      productNameInput.setText(product.getName());
+      productBarcodeInput.setText(product.getBarcode());
+      productPriceInput.setText(String.valueOf(product.getPrice()));
+
+      productSaveButton.setDisable(true);
+      productDeleteButton.setDisable(true);
+      productEditButton.setText("Salvar");
+    } else {
+      product.setName(productNameInput.getText());
+      product.setBarcode(productBarcodeInput.getText());
+      product.setPrice(Double.parseDouble(productPriceInput.getText()));
+
+      cartList.set(productTable.getSelectionModel().getSelectedIndex(), product);
+
+
+      getUpdate(productTable, cartList);
+      productSaveButton.setDisable(false);
+      productDeleteButton.setDisable(false);
+      cleanFields(productNameInput, productBarcodeInput, productPriceInput);
+      productEditButton.setText("Editar");
+    }
   }
 
   @FXML
   public void handleCancelProduct(ActionEvent event) {
-    // Limpa os inputs
-    productNameInput.setText("");
-    productBarcodeInput.setText("");
-    productPriceInput.setText("");
+    cleanFields(productNameInput, productBarcodeInput, productPriceInput);
   }
 
   @FXML
   public void handleDeleteProduct(ActionEvent event) {
-    System.out.println("Botão apagar produto funcionando!");
+    deleteFunction(productTable, cartList);
   }
 
   // Handle BuySell
