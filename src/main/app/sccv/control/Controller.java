@@ -199,7 +199,7 @@ public class Controller implements Initializable {
 
   // Handle Client
   @FXML
-  public void handleSaveClient(ActionEvent event) {
+  public void handleSaveClient(ActionEvent actionEvent) {
     if ((clientNameInput.getText() != null && ! clientNameInput.getText().isEmpty())) {
       if ((clientCPFInput.getText() != null && ! clientCPFInput.getText().isEmpty())) {
         if ((clientWalletInput.getText() != null && ! clientWalletInput.getText().isEmpty())) {
@@ -221,7 +221,7 @@ public class Controller implements Initializable {
   }
 
   @FXML
-  public void handleEditClient(ActionEvent event) {
+  public void handleEditClient(ActionEvent actionEvent) {
     Buyer buyerTable = clientTable.getSelectionModel().getSelectedItem();
 
     if ("Editar".equals(clientEditButton.getText())) {
@@ -249,7 +249,7 @@ public class Controller implements Initializable {
   }
 
   @FXML
-  public void handleCancelClient(ActionEvent event) {
+  public void handleCancelClient(ActionEvent actionEvent) {
     cleanFields(clientNameInput, clientCPFInput, clientWalletInput);
     clientEditButton.setText("Editar");
     clientSaveButton.setDisable(false);
@@ -258,13 +258,13 @@ public class Controller implements Initializable {
   }
 
   @FXML
-  public void handleDeleteClient(ActionEvent event) {
+  public void handleDeleteClient(ActionEvent actionEvent) {
     deleteFunction(clientTable, buyersList);
   }
 
   // Handle Seller
   @FXML
-  public void handleSaveSeller(ActionEvent event) {
+  public void handleSaveSeller(ActionEvent actionEvent) {
     if ((sellerNameInput.getText() != null && ! sellerNameInput.getText().isEmpty())) {
       if ((sellerCNPJInput.getText() != null && ! sellerCNPJInput.getText().isEmpty())) {
         if ((sellerWalletInput.getText() != null && ! sellerWalletInput.getText().isEmpty())) {
@@ -280,7 +280,7 @@ public class Controller implements Initializable {
   }
 
   @FXML
-  public void handleEditSeller(ActionEvent event) {
+  public void handleEditSeller(ActionEvent actionEvent) {
     Seller seller = sellerTable.getSelectionModel().getSelectedItem();
 
     if ("Editar".equals(sellerEditButton.getText())) {
@@ -309,18 +309,18 @@ public class Controller implements Initializable {
 
 
   @FXML
-  public void handleCancelSeller(ActionEvent event) {
+  public void handleCancelSeller(ActionEvent actionEvent) {
     cleanFields(sellerNameInput, sellerCNPJInput, sellerWalletInput);
   }
 
   @FXML
-  public void handleDeleteSeller(ActionEvent event) {
+  public void handleDeleteSeller(ActionEvent actionEvent) {
     deleteFunction(sellerTable, sellersList);
   }
 
   // Handle Product
   @FXML
-  public void handleSaveProduct(ActionEvent event) {
+  public void handleSaveProduct(ActionEvent actionEvent) {
     if ((productNameInput.getText() != null && ! productNameInput.getText().isEmpty())) {
       if ((productBarcodeInput.getText() != null && ! productBarcodeInput.getText().isEmpty())) {
         if ((productPriceInput.getText() != null && ! productPriceInput.getText().isEmpty())) {
@@ -336,7 +336,7 @@ public class Controller implements Initializable {
   }
 
   @FXML
-  public void handleEditProduct(ActionEvent event) {
+  public void handleEditProduct(ActionEvent actionEvent) {
     Product product = productTable.getSelectionModel().getSelectedItem();
 
     if ("Editar".equals(productEditButton.getText())) {
@@ -364,12 +364,12 @@ public class Controller implements Initializable {
   }
 
   @FXML
-  public void handleCancelProduct(ActionEvent event) {
+  public void handleCancelProduct(ActionEvent actionEvent) {
     cleanFields(productNameInput, productBarcodeInput, productPriceInput);
   }
 
   @FXML
-  public void handleDeleteProduct(ActionEvent event) {
+  public void handleDeleteProduct(ActionEvent actionEvent) {
     deleteFunction(productTable, cartList);
   }
 
@@ -379,19 +379,17 @@ public class Controller implements Initializable {
   }
 
   @FXML
-  public void handleEditBuySell() {
-    System.out.println("Botão editar venda funcionando!");
-  }
-
-  @FXML
-  public void handleCancelBuySell(ActionEvent event) {
+  public void handleCancelBuySell(ActionEvent actionEvent) {
     // Limpa os inputs
     buySellCNPJSellerInput.setText("");
     buySellCPFClientInput.setText("");
   }
 
-  @FXML
-  public void handleDeleteBuySell(ActionEvent event) {
-    System.out.println("Botão apagar produto funcionando!");
+  public void handleSearchProductBuySell(ActionEvent actionEvent) {
+    System.out.println("Botão buscar produto funcionando!");
+  }
+
+  public void handleEndBuySell(ActionEvent actionEvent) {
+    System.out.println("Botão finalizar venda funcionando!");
   }
 }
