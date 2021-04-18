@@ -48,11 +48,22 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Label>
-                              <TextField fx:id="clientWalletInput" layoutX="16.0" layoutY="128.0" prefHeight="32.0" prefWidth="176.0">
+                              <TextField fx:id="clientWalletInput" layoutX="16.0" layoutY="128.0" prefHeight="32.0" prefWidth="229.0">
                                  <padding>
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                               </TextField>
+                              <Button fx:id="clientSaveButton" layoutX="277.0" layoutY="128.0" mnemonicParsing="false" onAction="#handleSaveClient" prefHeight="25.0" prefWidth="91.0" text="Adicionar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Button>
                            </children>
                         </Pane>
                         <Pane layoutX="16.0" layoutY="224.0" prefHeight="256.0" prefWidth="768.0">
@@ -68,18 +79,7 @@
                         </Pane>
                         <Pane layoutX="16.0" layoutY="496.0" prefHeight="48.0" prefWidth="492.0">
                            <children>
-                              <Button fx:id="clientSaveButton" layoutX="16.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleSaveClient" prefHeight="25.0" prefWidth="91.0" text="Salvar">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets bottom="8.0" top="8.0" />
-                                 </padding>
-                              </Button>
-                              <Button fx:id="clientEditButton" layoutX="139.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleEditClient" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                              <Button fx:id="clientEditButton" layoutX="16.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleEditClient" prefHeight="25.0" prefWidth="91.0" text="Editar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -87,7 +87,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button fx:id="clientCancelButton" layoutX="262.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleCancelClient" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                              <Button fx:id="clientCancelButton" layoutX="139.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleCancelClient" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -95,7 +95,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button fx:id="clientDeleteButton" layoutX="385.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleDeleteClient" prefHeight="25.0" prefWidth="91.0" text="Deletar">
+                              <Button fx:id="clientDeleteButton" layoutX="262.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleDeleteClient" prefHeight="25.0" prefWidth="91.0" text="Deletar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -143,11 +143,22 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Label>
-                              <TextField fx:id="sellerWalletInput" layoutX="16.0" layoutY="128.0" prefHeight="32.0" prefWidth="176.0">
+                              <TextField fx:id="sellerWalletInput" layoutX="16.0" layoutY="128.0" prefHeight="32.0" prefWidth="229.0">
                                  <padding>
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                               </TextField>
+                              <Button fx:id="sellerSaveButton" layoutX="277.0" layoutY="128.0" mnemonicParsing="false" onAction="#handleSaveSeller" prefHeight="25.0" prefWidth="91.0" text="Adicionar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Button>
                            </children>
                         </Pane>
                         <Pane layoutX="16.0" layoutY="224.0" prefHeight="256.0" prefWidth="768.0">
@@ -163,18 +174,7 @@
                         </Pane>
                         <Pane layoutX="16.0" layoutY="496.0" prefHeight="48.0" prefWidth="492.0">
                            <children>
-                              <Button fx:id="sellerSaveButton" layoutX="16.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleSaveSeller" prefHeight="25.0" prefWidth="91.0" text="Salvar">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets bottom="8.0" top="8.0" />
-                                 </padding>
-                              </Button>
-                              <Button fx:id="sellerEditButton" layoutX="139.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleEditSeller" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                              <Button fx:id="sellerEditButton" layoutX="16.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleEditSeller" prefHeight="25.0" prefWidth="91.0" text="Editar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -182,7 +182,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button fx:id="sellerCancelButton" layoutX="262.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleCancelSeller" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                              <Button fx:id="sellerCancelButton" layoutX="139.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleCancelSeller" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -190,7 +190,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button fx:id="sellerDeleteButton" layoutX="385.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleDeleteSeller" prefHeight="25.0" prefWidth="91.0" text="Deletar">
+                              <Button fx:id="sellerDeleteButton" layoutX="262.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleDeleteSeller" prefHeight="25.0" prefWidth="91.0" text="Deletar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -238,11 +238,22 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Label>
-                              <TextField fx:id="productPriceInput" layoutX="16.0" layoutY="128.0" prefHeight="32.0" prefWidth="176.0">
+                              <TextField fx:id="productPriceInput" layoutX="16.0" layoutY="128.0" prefHeight="32.0" prefWidth="229.0">
                                  <padding>
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                               </TextField>
+                              <Button fx:id="productSaveButton" layoutX="277.0" layoutY="128.0" mnemonicParsing="false" onAction="#handleSaveProduct" prefHeight="25.0" prefWidth="91.0" text="Adicionar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Button>
                            </children>
                         </Pane>
                         <Pane layoutX="16.0" layoutY="224.0" prefHeight="256.0" prefWidth="768.0">
@@ -258,18 +269,7 @@
                         </Pane>
                         <Pane layoutX="16.0" layoutY="496.0" prefHeight="48.0" prefWidth="492.0">
                            <children>
-                              <Button fx:id="productSaveButton" layoutX="16.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleSaveProduct" prefHeight="25.0" prefWidth="91.0" text="Salvar">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets bottom="8.0" top="8.0" />
-                                 </padding>
-                              </Button>
-                              <Button fx:id="productEditButton" layoutX="139.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleEditProduct" prefHeight="25.0" prefWidth="91.0" text="Editar">
+                              <Button fx:id="productEditButton" layoutX="16.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleEditProduct" prefHeight="25.0" prefWidth="91.0" text="Editar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -277,7 +277,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button fx:id="productCancelButton" layoutX="262.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleCancelProduct" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
+                              <Button fx:id="productCancelButton" layoutX="139.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleCancelProduct" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -285,7 +285,7 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button fx:id="productDeleteButton" layoutX="385.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleDeleteProduct" prefHeight="25.0" prefWidth="91.0" text="Deletar">
+                              <Button fx:id="productDeleteButton" layoutX="262.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleDeleteProduct" prefHeight="25.0" prefWidth="91.0" text="Deletar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -313,7 +313,7 @@
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                               </TextField>
-                                      <Label layoutX="16.0" layoutY="16.0" text="CNPJ Vendedor">
+                                      <Label layoutX="16.0" layoutY="16.0" text="CNPJ">
                                  <padding>
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
@@ -323,7 +323,7 @@
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                               </TextField>
-                                      <Label layoutX="400.0" layoutY="16.0" text="CPF Comprador">
+                                      <Label layoutX="400.0" layoutY="16.0" text="CPF">
                                  <padding>
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
@@ -338,12 +338,12 @@
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                               </TextField>
-                              <TextField fx:id="buySellProductNameInput" disable="true" layoutX="176.0" layoutY="128.0" prefHeight="32.0" prefWidth="448.0">
+                              <TextField fx:id="buySellProductNameInput" layoutX="176.0" layoutY="128.0" prefHeight="32.0" prefWidth="448.0">
                                  <padding>
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                               </TextField>
-                              <Button fx:id="buySellAddButton" layoutX="661.0" layoutY="128.0" mnemonicParsing="false" onAction="#handleAddProductBuySell" prefHeight="25.0" prefWidth="91.0" text="Adicionar">
+                              <Button fx:id="buySellSearchButton" layoutX="661.0" layoutY="128.0" mnemonicParsing="false" onAction="#handleSearchProductBuySell" prefHeight="25.0" prefWidth="91.0" text="Buscar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -372,16 +372,8 @@
                               </TableView>
                            </children>
                         </Pane>
-                        <Pane layoutX="16.0" layoutY="496.0" prefHeight="48.0" prefWidth="492.0">
+                        <Pane layoutX="16.0" layoutY="496.0" prefHeight="48.0" prefWidth="768.0">
                            <children>
-                              <Button fx:id="buySellEditButton" layoutX="16.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleEditBuySell" prefHeight="25.0" prefWidth="91.0" text="Editar">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <padding>
-                                    <Insets bottom="8.0" top="8.0" />
-                                 </padding>
-                              </Button>
                               <Button fx:id="buySellCancelButton" layoutX="139.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleCancelBuySell" prefHeight="25.0" prefWidth="91.0" text="Cancelar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -390,7 +382,18 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
-                              <Button fx:id="buySellDeleteButton" layoutX="262.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleDeleteBuySell" prefHeight="25.0" prefWidth="91.0" text="Deletar">
+                              <Button fx:id="buySellAddButton1" layoutX="16.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleAddProductBuySell" prefHeight="25.0" prefWidth="91.0" text="Adicionar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </Button>
+                              <Button fx:id="buySellEndButton" layoutX="661.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleEndBuySell" prefHeight="25.0" prefWidth="91.0" text="Finalizar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -402,26 +405,6 @@
                            <padding>
                               <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                            </padding>
-                        </Pane>
-                        <Pane layoutX="508.0" layoutY="497.0" prefHeight="46.0" prefWidth="276.0">
-                           <padding>
-                              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
-                           </padding>
-                           <children>
-                              <TextField fx:id="buySellTotalInput" disable="true" layoutX="80.0" layoutY="7.0" prefHeight="32.0" prefWidth="180.0">
-                                 <padding>
-                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                                 </padding>
-                              </TextField>
-                              <Label layoutX="16.0" layoutY="7.0" text="TOTAL" wrapText="true">
-                                 <padding>
-                                    <Insets bottom="8.0" top="8.0" />
-                                 </padding>
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                           </children>
                         </Pane>
                             </children>
                         </AnchorPane>
@@ -438,7 +421,7 @@
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                               </TextField>
-                              <Label layoutX="16.0" layoutY="16.0" text="CNPJ Vendedor">
+                              <Label layoutX="16.0" layoutY="16.0" text="CNPJ">
                                  <padding>
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
@@ -448,12 +431,12 @@
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                               </TextField>
-                              <Label layoutX="400.0" layoutY="16.0" text="CPF Comprador">
+                              <Label layoutX="400.0" layoutY="16.0" text="CPF">
                                  <padding>
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Label>
-                              <Label layoutX="16.0" layoutY="96.0" text="Adicionar produto">
+                              <Label layoutX="16.0" layoutY="96.0" text="Codigo produto">
                                  <padding>
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
@@ -463,7 +446,7 @@
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                               </TextField>
-                              <TextField disable="true" layoutX="176.0" layoutY="128.0" prefHeight="32.0" prefWidth="448.0">
+                              <TextField layoutX="176.0" layoutY="128.0" prefHeight="32.0" prefWidth="448.0">
                                  <padding>
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
@@ -479,6 +462,11 @@
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                               </Button>
+                              <Label layoutX="176.0" layoutY="96.0" text="Nome produto">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
                            </children>
                         </Pane>
                         <Pane layoutX="16.0" layoutY="224.0" prefHeight="256.0" prefWidth="768.0">
