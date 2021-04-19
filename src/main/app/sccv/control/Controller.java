@@ -132,7 +132,6 @@ public class Controller implements Initializable {
 
   @Override
   public void initialize(URL location, ResourceBundle resource) {
-
     clientNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
     clientCPFColumn.setCellValueFactory(new PropertyValueFactory<>("cpf"));
     clientWalletColumn.setCellValueFactory(new PropertyValueFactory<>("wallet"));
@@ -148,8 +147,6 @@ public class Controller implements Initializable {
     buySellProductCodeColumn.setCellValueFactory(new PropertyValueFactory<>("code"));
     buySellProductCodeColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
     buySellProductCodeColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-
-
   }
 
   private void getUpdate(TableView table, List array) {
@@ -175,26 +172,24 @@ public class Controller implements Initializable {
     }
   }
 
-  private void alert(String type, String erro) {
+  private void alert(String type, String error) {
     switch (type.toUpperCase(Locale.ROOT)) {
       case "WARNING":
-        Alert alertaWarning = new Alert(Alert.AlertType.WARNING);
-        alertaWarning.setContentText("por favor, preencha os campos em branco");
-        alertaWarning.show();
+        Alert warningMessage = new Alert(Alert.AlertType.WARNING);
+        warningMessage.setContentText("Por favor, preencha os campos em branco.");
+        warningMessage.show();
         break;
       case "ERROR":
-        Alert alertaError = new Alert(Alert.AlertType.ERROR);
-        alertaError.setContentText(erro);
-        alertaError.show();
+        Alert errorMessage = new Alert(Alert.AlertType.ERROR);
+        errorMessage.setContentText(error);
+        errorMessage.show();
         break;
       case "CONFIRM":
-        Alert alertaConfirm = new Alert(Alert.AlertType.ERROR);
-        alertaConfirm.setContentText("cadastro realizado com sucesso");
-        alertaConfirm.show();
+        Alert confirmMessage = new Alert(Alert.AlertType.ERROR);
+        confirmMessage.setContentText("Cadastro realizado com sucesso.");
+        confirmMessage.show();
         break;
     }
-
-
   }
 
   // Handle Client
@@ -210,10 +205,10 @@ public class Controller implements Initializable {
           alert("Warning", "");
         }
       } else {
-        alert("warning", "");
+        alert("Warning", "");
       }
     } else {
-      alert("warning", "");
+      alert("Warning", "");
     }
 
     // Limpa os inputs
@@ -238,7 +233,6 @@ public class Controller implements Initializable {
       buyerTable.setWallet(Double.parseDouble(clientWalletInput.getText()));
 
       buyersList.set(clientTable.getSelectionModel().getSelectedIndex(), buyerTable);
-
 
       getUpdate(clientTable, buyersList);
       clientSaveButton.setDisable(false);
@@ -298,7 +292,6 @@ public class Controller implements Initializable {
 
       sellersList.set(sellerTable.getSelectionModel().getSelectedIndex(), seller);
 
-
       getUpdate(sellerTable, sellersList);
       sellerSaveButton.setDisable(false);
       sellerDeleteButton.setDisable(false);
@@ -306,7 +299,6 @@ public class Controller implements Initializable {
       sellerEditButton.setText("Editar");
     }
   }
-
 
   @FXML
   public void handleCancelSeller(ActionEvent actionEvent) {
@@ -353,7 +345,6 @@ public class Controller implements Initializable {
       product.setPrice(Double.parseDouble(productPriceInput.getText()));
 
       cartList.set(productTable.getSelectionModel().getSelectedIndex(), product);
-
 
       getUpdate(productTable, cartList);
       productSaveButton.setDisable(false);
