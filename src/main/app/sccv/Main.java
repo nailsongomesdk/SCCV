@@ -6,6 +6,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import main.app.sccv.model.finance.Finance;
+import main.app.sccv.model.finance.FinanceInterface;
+
 public class Main extends Application {
   private Stage stage;
 
@@ -18,6 +21,7 @@ public class Main extends Application {
     stage = mainStage;
     stage.setTitle("Sistema de cadastro de compra e venda");
     initView();
+    testEnum();
   }
 
   private void initView() {
@@ -33,6 +37,18 @@ public class Main extends Application {
       stage.show();
     } catch (Exception e) {
       e.printStackTrace();
+    }
+  }
+
+  private void testEnum() {
+    FinanceInterface month = Finance.fromValue(1);
+
+    if (month != null) {
+      System.out.println("Mês: " + month.getValue() + ", " + month.getName());
+    }
+
+    if (Finance.MES01 == month) {
+      System.out.println("O mês " + month.getValue() + "º do ano é " + month.getName());
     }
   }
 }
