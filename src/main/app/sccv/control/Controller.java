@@ -69,8 +69,6 @@ public class Controller implements Initializable {
   private TableColumn<Seller, String> sellerCNPJColumn;
   @FXML
   private TableColumn<Seller, Double> sellerWalletColumn;
-  @FXML
-  private Seller selectedSeller;
 
   // Product
   @FXML
@@ -158,7 +156,12 @@ public class Controller implements Initializable {
 
   private void cleanFields(TextField... params) {
     for (TextField input : params) {
-      input.setText("");
+      try{
+        input.setText("");
+      }catch (Exception e){
+        System.out.println(e.getMessage());
+      }
+
     }
   }
 
@@ -317,8 +320,7 @@ public class Controller implements Initializable {
       if ((productBarcodeInput.getText() != null && ! productBarcodeInput.getText().isEmpty())) {
         if ((productPriceInput.getText() != null && ! productPriceInput.getText().isEmpty())) {
           Product p = new Product(productNameInput.getText(), Double.parseDouble(productPriceInput.getText()), productBarcodeInput.getText());
-          productTable.getItems().add(p);
-          cartList.add(p);
+
         }
       }
     }
@@ -372,12 +374,11 @@ public class Controller implements Initializable {
   @FXML
   public void handleCancelBuySell(ActionEvent actionEvent) {
     // Limpa os inputs
-    buySellCNPJSellerInput.setText("");
-    buySellCPFClientInput.setText("");
+    cleanFields(buySellCNPJSellerInput, buySellProductNameInput, buySellCPFClientInput, buySellProductCodeInput);
   }
 
   public void handleSearchProductBuySell(ActionEvent actionEvent) {
-    System.out.println("Botão buscar produto funcionando!");
+
   }
 
   public void handleEndBuySell(ActionEvent actionEvent) {
