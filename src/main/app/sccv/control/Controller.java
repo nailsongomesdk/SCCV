@@ -80,6 +80,8 @@ public class Controller implements Initializable {
   @FXML
   private TextField productPriceInput;
   @FXML
+  public TextField productCNPJInput;
+  @FXML
   private Button productSaveButton;
   @FXML
   private Button productEditButton;
