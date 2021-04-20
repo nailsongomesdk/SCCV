@@ -12,10 +12,7 @@ import main.app.sccv.model.person.Buyer;
 import main.app.sccv.model.person.Seller;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Controller implements Initializable {
   private final List<Buyer> buyersList = new ArrayList<>();
@@ -158,9 +155,9 @@ public class Controller implements Initializable {
 
   private void cleanFields(TextField... params) {
     for (TextField input : params) {
-      try{
+      try {
         input.setText("");
-      }catch (Exception e){
+      } catch (Exception e) {
         System.out.println(e.getMessage());
       }
 
@@ -315,20 +312,28 @@ public class Controller implements Initializable {
     deleteFunction(sellerTable, sellersList);
   }
 
-  // Handle Product
   @FXML
   public void handleSaveProduct(ActionEvent actionEvent) {
-    if ((productNameInput.getText() != null && ! productNameInput.getText().isEmpty())) {
-      if ((productBarcodeInput.getText() != null && ! productBarcodeInput.getText().isEmpty())) {
-        if ((productPriceInput.getText() != null && ! productPriceInput.getText().isEmpty())) {
-          Product p = new Product(productNameInput.getText(), Double.parseDouble(productPriceInput.getText()), productBarcodeInput.getText());
-
+    if (!sellersList.contains(Search.searchingSeller(productCNPJInput.getText()))) {
+      if ((productCNPJInput.getText() != null && ! productCNPJInput.getText().isEmpty())) {
+        if ((productNameInput.getText() != null && ! productNameInput.getText().isEmpty())) {
+          if ((productBarcodeInput.getText() != null && ! productBarcodeInput.getText().isEmpty())) {
+            if ((productPriceInput.getText() != null && ! productPriceInput.getText().isEmpty())) {
+              Product p = new Product(productNameInput.getText(), Double.parseDouble(productPriceInput.getText()), productBarcodeInput.getText());
+              Seller s = Search.searchingSeller(productCNPJInput.getText());
+              s.addProductCatalogue(p);
+              productTable.getItems().add(p);
+            }
+          }
         }
       }
+    } else {
+      alert("error", "vendedor nao encontrado");
     }
 
+
     // Limpa os inputs
-    cleanFields(productNameInput, productBarcodeInput, productPriceInput);
+    cleanFields(productNameInput, productBarcodeInput, productPriceInput, productCNPJInput);
   }
 
   @FXML

@@ -49,8 +49,8 @@ public class Seller extends Person {
     return productCatalogue;
   }
 
-  public void addProductCatalogue() {
-    productCatalogue.add(Register.productRegistration());
+  public void addProductCatalogue(Product prod) {
+    productCatalogue.add(prod);
   }
 
   public String list() {
