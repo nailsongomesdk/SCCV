@@ -243,7 +243,7 @@
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                               </TextField>
-                              <Button fx:id="productSaveButton" layoutX="277.0" layoutY="128.0" mnemonicParsing="false" onAction="#handleSaveProduct" prefHeight="25.0" prefWidth="91.0" text="Adicionar">
+                              <Button fx:id="productSaveButton" layoutX="661.0" layoutY="128.0" mnemonicParsing="false" onAction="#handleSaveProduct" prefHeight="25.0" prefWidth="91.0" text="Adicionar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -254,6 +254,16 @@
                                     <Insets bottom="8.0" top="8.0" />
                                  </padding>
                               </Button>
+                              <TextField fx:id="productCNPJInput" layoutX="277.0" layoutY="128.0" prefHeight="32.0" prefWidth="352.0">
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </TextField>
+                              <Label layoutX="277.0" layoutY="96.0" text="CNPJ">
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding>
+                              </Label>
                            </children>
                         </Pane>
                         <Pane layoutX="16.0" layoutY="224.0" prefHeight="256.0" prefWidth="768.0">
@@ -261,8 +271,9 @@
                               <TableView fx:id="productTable" layoutX="16.0" layoutY="16.0" prefHeight="224.0" prefWidth="736.0">
                                  <columns>
                                     <TableColumn fx:id="productBarcodeColumn" prefWidth="150.0" text="Codigo" />
-                                    <TableColumn fx:id="productNameColumn" prefWidth="436.0" text="Produto" />
+                                    <TableColumn fx:id="productNameColumn" prefWidth="286.0" text="Produto" />
                                     <TableColumn fx:id="productPriceColumn" prefWidth="150.0" text="Valor" />
+                                    <TableColumn fx:id="productPriceColumn1" prefWidth="150.0" text="CNPJ" />
                                  </columns>
                               </TableView>
                            </children>
@@ -338,7 +349,7 @@
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                               </TextField>
-                              <TextField fx:id="buySellProductNameInput" layoutX="176.0" layoutY="128.0" prefHeight="32.0" prefWidth="448.0">
+                              <TextField fx:id="buySellProductNameInput" layoutX="176.0" layoutY="128.0" prefHeight="32.0" prefWidth="453.0">
                                  <padding>
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
@@ -446,7 +457,7 @@
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
                               </TextField>
-                              <TextField layoutX="176.0" layoutY="128.0" prefHeight="32.0" prefWidth="448.0">
+                              <TextField layoutX="176.0" layoutY="128.0" prefHeight="32.0" prefWidth="453.0">
                                  <padding>
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </padding>
