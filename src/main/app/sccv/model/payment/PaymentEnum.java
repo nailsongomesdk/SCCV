@@ -1,31 +1,31 @@
 package main.app.sccv.model.payment;
 
 public enum PaymentEnum implements PaymentInterface {
-  PAYMENT1(1, "Pix"),
-  PAYMENT2(2, "Débito"),
-  PAYMENT3(3, "Crédito"),
-  PAYMENT4(4, "Boleto");
+  PIX_PAYMENT(1, Pix),
+  DEBIT_PAYMENT(2, Debit),
+  CREDIT_PAYMENT(3, Credit),
+  SLIP_PAYMENT(4, Slip);
 
-  private final int PAYMENT_VALUE;
-  private final Payment PAYMENT_NAME;
+  private final int PAYMENT_ID;
+  private final Payment PAYMENT_TYPE;
 
-  private PaymentEnum(int value, Payment name) {
-    this.PAYMENT_VALUE = value;
-    this.PAYMENT_NAME = name;
+  PaymentEnum(int value, Payment type) {
+    this.PAYMENT_ID = value;
+    this.PAYMENT_TYPE = type;
   }
 
   public int getPaymentValue() {
-    return PAYMENT_VALUE;
+    return PAYMENT_ID;
   }
 
-  public Payment getPaymentName() {
-    return PAYMENT_NAME;
+  public Payment getPaymentType() {
+    return PAYMENT_TYPE;
   }
 
   public static PaymentEnum fromValue(int i) {
-    for (PaymentEnum candidate : values()) {
-      if (candidate.PAYMENT_VALUE == i) {
-        return candidate;
+    for (PaymentEnum payment : values()) {
+      if (payment.PAYMENT_ID == i) {
+        return payment;
       }
     }
 

@@ -40,14 +40,14 @@ public class Main extends Application {
   }
 
   private void testEnum() {
-    PaymentInterface month = PaymentEnum.fromValue(1);
+    PaymentInterface payment = PaymentEnum.fromValue(1);
 
-    if (month != null) {
-      System.out.println("Mês: " + month.getPaymentValue() + ", " + month.getPaymentName());
+    if (payment != null) {
+      System.out.println("Mês: " + payment.getPaymentValue() + ", " + payment.getPaymentType());
     }
 
-    if (PaymentEnum.PAYMENT1 == month) {
-      System.out.println("O mês " + month.getPaymentValue() + "º do ano é " + month.getPaymentName());
+    if (PaymentEnum.PIX_PAYMENT == payment) {
+      System.out.println("O mês " + payment.getPaymentValue() + "º do ano é " + payment.getPaymentType());
     }
   }
 }
