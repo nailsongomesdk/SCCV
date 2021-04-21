@@ -20,7 +20,6 @@ public class Main extends Application {
     stage = mainStage;
     stage.setTitle("Sistema de cadastro de compra e venda");
     initView();
-    testEnum();
   }
 
   private void initView() {
@@ -36,18 +35,6 @@ public class Main extends Application {
       stage.show();
     } catch (Exception e) {
       e.printStackTrace();
-    }
-  }
-
-  private void testEnum() {
-    PaymentInterface payment = PaymentEnum.fromValue(1);
-
-    if (payment != null) {
-      System.out.println("Mês: " + payment.getPaymentValue() + ", " + payment.getPaymentType());
-    }
-
-    if (PaymentEnum.PIX_PAYMENT == payment) {
-      System.out.println("O mês " + payment.getPaymentValue() + "º do ano é " + payment.getPaymentType());
     }
   }
 }
