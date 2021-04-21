@@ -7,11 +7,21 @@ public class Product {
   private String name;
   private double price;
   private String barcode;
+  private String sellerCnpj;
 
-  public Product(String name, double price, String barcode) {
+  public Product(String name, double price, String barcode, String cnpj) {
     this.name = name;
     this.price = price;
     this.barcode = barcode;
+    this.sellerCnpj = cnpj;
+  }
+
+  public String getSellerCnpj() {
+    return sellerCnpj;
+  }
+
+  public void setSellerCnpj(String sellerCnpj) {
+    this.sellerCnpj = sellerCnpj;
   }
 
   public Product() {}
