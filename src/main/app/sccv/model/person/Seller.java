@@ -1,6 +1,5 @@
 package main.app.sccv.model.person;
 
-import main.app.sccv.control.Register;
 import main.app.sccv.model.BuySell;
 import main.app.sccv.model.Product;
 import main.app.sccv.model.payment.Payment;

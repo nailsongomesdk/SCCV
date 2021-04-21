@@ -7,10 +7,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import main.app.sccv.model.BuySell;
 import main.app.sccv.model.Product;
-import main.app.sccv.model.payment.Payment;
 import main.app.sccv.model.person.Buyer;
 import main.app.sccv.model.person.Seller;
-import main.app.sccv.view.menu.Menu;
 
 import java.net.URL;
 import java.util.*;
@@ -76,7 +74,7 @@ public class Controller implements Initializable {
   @FXML
   private TextField productPriceInput;
   @FXML
-  public TextField productCNPJInput;
+  private TextField productCNPJInput;
   @FXML
   private Button productSaveButton;
   @FXML
@@ -114,6 +112,8 @@ public class Controller implements Initializable {
   @FXML
   private Button buySellDeleteButton;
   @FXML
+  private ComboBox buySellPaymentMethodComboBox;
+  @FXML
   private TableView<BuySell> buySellTable;
   @FXML
   private TableColumn<BuySell, String> buySellProductCodeColumn;
@@ -121,12 +121,6 @@ public class Controller implements Initializable {
   private TableColumn<BuySell, String> buySellProductNameColumn;
   @FXML
   private TableColumn<BuySell, String> buySellProductPriceColumn;
-  @FXML
-  private BuySell selectedBuySell;
-
-  // Payment
-  @FXML
-  private ComboBox<Payment> selectPaymentMethod;
 
   @Override
   public void initialize(URL location, ResourceBundle resource) {

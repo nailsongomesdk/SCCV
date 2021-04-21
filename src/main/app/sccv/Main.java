@@ -5,9 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
-import main.app.sccv.model.finance.Finance;
-import main.app.sccv.model.finance.FinanceInterface;
+import main.app.sccv.model.payment.PaymentEnum;
+import main.app.sccv.model.payment.PaymentInterface;
 
 public class Main extends Application {
   private Stage stage;
@@ -28,7 +27,7 @@ public class Main extends Application {
     try {
       // Loads the .fxml file
       FXMLLoader view = new FXMLLoader();
-      view.setLocation(Main.class.getResource("view/menu/menu.fxml"));
+      view.setLocation(Main.class.getResource("view/viewer/viewer.fxml"));
       Pane root = view.load();
 
       // Shows the layout scene
@@ -41,14 +40,14 @@ public class Main extends Application {
   }
 
   private void testEnum() {
-    FinanceInterface month = Finance.fromValue(1);
+    PaymentInterface month = PaymentEnum.fromValue(1);
 
     if (month != null) {
-      System.out.println("Mês: " + month.getValue() + ", " + month.getName());
+      System.out.println("Mês: " + month.getPaymentValue() + ", " + month.getPaymentName());
     }
 
-    if (Finance.MES01 == month) {
-      System.out.println("O mês " + month.getValue() + "º do ano é " + month.getName());
+    if (PaymentEnum.PAYMENT1 == month) {
+      System.out.println("O mês " + month.getPaymentValue() + "º do ano é " + month.getPaymentName());
     }
   }
 }
