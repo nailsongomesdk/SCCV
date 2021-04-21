@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.app.sccv.control.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.app.sccv.control.Controller">
     <children>
         <TabPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
@@ -271,9 +271,8 @@
                               <TableView fx:id="productTable" layoutX="16.0" layoutY="16.0" prefHeight="224.0" prefWidth="736.0">
                                  <columns>
                                     <TableColumn fx:id="productBarcodeColumn" prefWidth="150.0" text="Codigo" />
-                                    <TableColumn fx:id="productNameColumn" prefWidth="286.0" text="Produto" />
+                                    <TableColumn fx:id="productNameColumn" prefWidth="436.0" text="Produto" />
                                     <TableColumn fx:id="productPriceColumn" prefWidth="150.0" text="Valor" />
-                                    <TableColumn fx:id="productPriceColumn1" prefWidth="150.0" text="CNPJ" />
                                  </columns>
                               </TableView>
                            </children>
