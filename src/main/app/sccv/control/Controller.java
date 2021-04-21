@@ -1,5 +1,7 @@
 package main.app.sccv.control;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -114,13 +116,13 @@ public class Controller implements Initializable {
   @FXML
   private ComboBox buySellPaymentMethodComboBox;
   @FXML
-  private TableView<BuySell> buySellTable;
+  private TableView<Product> buySellTable;
   @FXML
-  private TableColumn<BuySell, String> buySellProductCodeColumn;
+  private TableColumn<Product, String> buySellProductCodeColumn;
   @FXML
-  private TableColumn<BuySell, String> buySellProductNameColumn;
+  private TableColumn<Product, String> buySellProductNameColumn;
   @FXML
-  private TableColumn<BuySell, String> buySellProductPriceColumn;
+  private TableColumn<Product, Double> buySellProductPriceColumn;
 
   @Override
   public void initialize(URL location, ResourceBundle resource) {
@@ -137,8 +139,8 @@ public class Controller implements Initializable {
     productBarcodeColumn.setCellValueFactory(new PropertyValueFactory<>("barcode"));
 
     buySellProductCodeColumn.setCellValueFactory(new PropertyValueFactory<>("code"));
-    buySellProductCodeColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-    buySellProductCodeColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+    buySellProductNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+    buySellProductPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
   }
 
   private void getUpdate(TableView table, List array) {
@@ -152,6 +154,16 @@ public class Controller implements Initializable {
     for (Seller seller : sellersList) {
       if (cnpj.equals(seller.getCnpj())) {
         return seller;
+      }
+    }
+
+    return null;
+  }
+
+  private Buyer searchingBuyer(String cpf) {
+    for (Buyer buyer : buyersList) {
+      if (cpf.equals(buyer.getCpf())) {
+        return buyer;
       }
     }
 
@@ -415,6 +427,24 @@ public class Controller implements Initializable {
   }
 
   public void handleSearchProductBuySell(ActionEvent actionEvent) {
+    Buyer buyer = searchingBuyer(buySellCPFClientInput.getText());
+    Seller seller = searchingSeller(buySellCNPJSellerInput.getText());
+
+    buySellProductCodeInput.textProperty().addListener(new ChangeListener<String>() {
+      @Override
+      public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+        for (Product product : seller.getProductCatalogue()) {
+            if(t1.equals(product.getBarcode())){
+              buySellTable.getItems().add(product);
+              System.out.println(t1);
+              System.out.println(product);
+            }else{
+              buySellTable.getItems().clear();
+            }
+        }
+      }
+    });
+
 
   }
 
