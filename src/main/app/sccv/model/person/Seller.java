@@ -50,7 +50,7 @@ public class Seller extends Person {
   }
 
   public void addProductCatalogue(Product prod) {
-    productCatalogue.add(prod);
+    var add = productCatalogue.add(prod);
   }
 
   public String list() {
@@ -78,6 +78,6 @@ public class Seller extends Person {
 
   @Override
   public String toString() {
-    return MessageFormat.format("\tVendedor: {0}\n\tCNPJ: {1}\n\tCarteira: R${2} \nCATALOGO DE PRODUTOS: {3}", getName(), getCnpj(), getWallet(), list());
+    return MessageFormat.format("\tVendedor: {0}\n\tCNPJ: {1}\n\tCarteira: R${2} \nCATALOGO DE PRODUTOS: {3}\n -----------------", getName(), getCnpj(), getWallet(), list());
   }
 }

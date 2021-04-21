@@ -10,6 +10,7 @@ import main.app.sccv.model.Product;
 import main.app.sccv.model.payment.Payment;
 import main.app.sccv.model.person.Buyer;
 import main.app.sccv.model.person.Seller;
+import main.app.sccv.view.menu.Menu;
 
 import java.net.URL;
 import java.util.*;
@@ -151,6 +152,16 @@ public class Controller implements Initializable {
     for (Object item : array) {
       table.getItems().add(item);
     }
+  }
+
+  private Seller searchingSeller(String cnpj) {
+    for (Seller seller : sellersList) {
+      if (cnpj.equals(seller.getCnpj())) {
+        return seller;
+      }
+    }
+
+    return null;
   }
 
   private void cleanFields(TextField... params) {
@@ -314,21 +325,30 @@ public class Controller implements Initializable {
 
   @FXML
   public void handleSaveProduct(ActionEvent actionEvent) {
-    if (!sellersList.contains(Search.searchingSeller(productCNPJInput.getText()))) {
+    if (sellersList.contains(searchingSeller(productCNPJInput.getText()))) {
       if ((productCNPJInput.getText() != null && ! productCNPJInput.getText().isEmpty())) {
         if ((productNameInput.getText() != null && ! productNameInput.getText().isEmpty())) {
           if ((productBarcodeInput.getText() != null && ! productBarcodeInput.getText().isEmpty())) {
             if ((productPriceInput.getText() != null && ! productPriceInput.getText().isEmpty())) {
               Product p = new Product(productNameInput.getText(), Double.parseDouble(productPriceInput.getText()), productBarcodeInput.getText());
-              Seller s = Search.searchingSeller(productCNPJInput.getText());
-              s.addProductCatalogue(p);
+              Seller s = searchingSeller(productCNPJInput.getText());
               productTable.getItems().add(p);
+              s.addProductCatalogue(p);
+
+            } else {
+              alert("warning", "");
             }
+          } else {
+            alert("warning", "");
           }
+        } else {
+          alert("warning", "");
         }
+      } else {
+        alert("warning", "");
       }
     } else {
-      alert("error", "vendedor nao encontrado");
+      alert("error", "vendedor nao encontrado, adicione um cnjp válido");
     }
 
 
@@ -340,27 +360,9 @@ public class Controller implements Initializable {
   public void handleEditProduct(ActionEvent actionEvent) {
     Product product = productTable.getSelectionModel().getSelectedItem();
 
-    if ("Editar".equals(productEditButton.getText())) {
-      productNameInput.setText(product.getName());
-      productBarcodeInput.setText(product.getBarcode());
-      productPriceInput.setText(String.valueOf(product.getPrice()));
+    System.out.println(searchingSeller(productCNPJInput.getText()));
 
-      productSaveButton.setDisable(true);
-      productDeleteButton.setDisable(true);
-      productEditButton.setText("Salvar");
-    } else {
-      product.setName(productNameInput.getText());
-      product.setBarcode(productBarcodeInput.getText());
-      product.setPrice(Double.parseDouble(productPriceInput.getText()));
 
-      cartList.set(productTable.getSelectionModel().getSelectedIndex(), product);
-
-      getUpdate(productTable, cartList);
-      productSaveButton.setDisable(false);
-      productDeleteButton.setDisable(false);
-      cleanFields(productNameInput, productBarcodeInput, productPriceInput);
-      productEditButton.setText("Editar");
-    }
   }
 
   @FXML
