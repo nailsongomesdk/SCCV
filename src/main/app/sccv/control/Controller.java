@@ -315,7 +315,12 @@ public class Controller implements Initializable {
 
   @FXML
   public void handleCancelSeller(ActionEvent actionEvent) {
+
     cleanFields(sellerNameInput, sellerCNPJInput, sellerWalletInput);
+    sellerEditButton.setText("Editar");
+    sellerSaveButton.setDisable(false);
+    sellerDeleteButton.setDisable(false);
+    sellerNameInput.requestFocus();
   }
 
   @FXML
@@ -330,7 +335,7 @@ public class Controller implements Initializable {
         if ((productNameInput.getText() != null && ! productNameInput.getText().isEmpty())) {
           if ((productBarcodeInput.getText() != null && ! productBarcodeInput.getText().isEmpty())) {
             if ((productPriceInput.getText() != null && ! productPriceInput.getText().isEmpty())) {
-              Product p = new Product(productNameInput.getText(), Double.parseDouble(productPriceInput.getText()), productBarcodeInput.getText());
+              Product p = new Product(productNameInput.getText(), Double.parseDouble(productPriceInput.getText()), productBarcodeInput.getText(), productCNPJInput.getText());
               Seller s = searchingSeller(productCNPJInput.getText());
               productTable.getItems().add(p);
               s.addProductCatalogue(p);
@@ -359,20 +364,49 @@ public class Controller implements Initializable {
   @FXML
   public void handleEditProduct(ActionEvent actionEvent) {
     Product product = productTable.getSelectionModel().getSelectedItem();
+    Seller seller = searchingSeller(product.getSellerCnpj());
 
-    System.out.println(searchingSeller(productCNPJInput.getText()));
+    if ("Editar".equals(productEditButton.getText())) {
+      productNameInput.setText(product.getName());
+      productPriceInput.setText(String.valueOf(product.getPrice()));
+      productBarcodeInput.setText(product.getBarcode());
+      productCNPJInput.setText(product.getSellerCnpj());
 
+      productSaveButton.setDisable(true);
+      productSaveButton.setDisable(true);
+      productEditButton.setText("Salvar");
+
+    } else {
+      product.setName(productNameInput.getText());
+      product.setPrice(Double.parseDouble(productCNPJInput.getText()));
+      product.setBarcode(productBarcodeInput.getText());
+      product.setSellerCnpj(productCNPJInput.getText());
+
+      seller.getProductCatalogue().set(productTable.getSelectionModel().getSelectedIndex(), product);
+
+      assert seller != null;
+      getUpdate(productTable, seller.getProductCatalogue());
+      productSaveButton.setDisable(false);
+      productDeleteButton.setDisable(false);
+      cleanFields(productNameInput, productBarcodeInput, productPriceInput, productCNPJInput);
+      productEditButton.setText("Editar");
+    }
 
   }
 
   @FXML
   public void handleCancelProduct(ActionEvent actionEvent) {
-    cleanFields(productNameInput, productBarcodeInput, productPriceInput);
+    cleanFields(productNameInput, productBarcodeInput, productPriceInput, productCNPJInput);
+    productEditButton.setText("Editar");
+    productSaveButton.setDisable(false);
+    productDeleteButton.setDisable(false);
+    productNameInput.requestFocus();
   }
 
   @FXML
   public void handleDeleteProduct(ActionEvent actionEvent) {
-    deleteFunction(productTable, cartList);
+    Seller seller = searchingSeller(productTable.getSelectionModel().getSelectedItem().getSellerCnpj());
+    deleteFunction(productTable, seller.getProductCatalogue());
   }
 
   // Handle BuySell
