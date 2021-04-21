@@ -58,7 +58,7 @@ public class Menu {
           } else {
             vendedorProduto = Search.searchingSeller(cnpjDigitado);
             assert vendedorProduto != null;
-            vendedorProduto.addProductCatalogue();
+            //vendedorProduto.addProductCatalogue();
           }
         } catch (ParseException e) {
           e.printStackTrace();
