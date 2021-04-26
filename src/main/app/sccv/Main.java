@@ -43,11 +43,11 @@ public class Main extends Application {
     PaymentInterface payment = PaymentEnum.fromValue(1);
 
     if (payment != null) {
-      System.out.println("Mês: " + payment.getPaymentValue() + ", " + payment.getPaymentType());
+      System.out.println("Forma de pagamento: Nº" + payment.getPaymentValue() + ", " + payment.getPaymentType());
     }
 
     if (PaymentEnum.PIX_PAYMENT == payment) {
-      System.out.println("O mês " + payment.getPaymentValue() + "º do ano é " + payment.getPaymentType());
+      System.out.println("A " + payment.getPaymentValue() + "ª opção de pagamento é o " + payment.getPaymentType());
     }
   }
 }

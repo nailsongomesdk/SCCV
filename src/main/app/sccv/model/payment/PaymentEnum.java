@@ -1,15 +1,15 @@
 package main.app.sccv.model.payment;
 
 public enum PaymentEnum implements PaymentInterface {
-  PIX_PAYMENT(1, Pix),
-  DEBIT_PAYMENT(2, Debit),
-  CREDIT_PAYMENT(3, Credit),
-  SLIP_PAYMENT(4, Slip);
+  PIX_PAYMENT(1, "Pix"),
+  DEBIT_PAYMENT(2, "Debit"),
+  CREDIT_PAYMENT(3, "Credit"),
+  SLIP_PAYMENT(4, "Slip");
 
   private final int PAYMENT_ID;
-  private final Payment PAYMENT_TYPE;
+  private final String PAYMENT_TYPE;
 
-  PaymentEnum(int value, Payment type) {
+  PaymentEnum(int value, String type) {
     this.PAYMENT_ID = value;
     this.PAYMENT_TYPE = type;
   }
@@ -18,7 +18,7 @@ public enum PaymentEnum implements PaymentInterface {
     return PAYMENT_ID;
   }
 
-  public Payment getPaymentType() {
+  public String getPaymentType() {
     return PAYMENT_TYPE;
   }
 
