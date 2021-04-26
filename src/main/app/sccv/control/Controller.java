@@ -7,18 +7,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import main.app.sccv.model.BuySell;
 import main.app.sccv.model.Product;
 import main.app.sccv.model.person.Buyer;
 import main.app.sccv.model.person.Seller;
 
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
   private final List<Buyer> buyersList = new ArrayList<>();
   private final List<Seller> sellersList = new ArrayList<>();
-  private final List<Product> cartList = new ArrayList<>();
 
   // Client
   @FXML
@@ -31,8 +32,6 @@ public class Controller implements Initializable {
   private Button clientSaveButton;
   @FXML
   private Button clientEditButton;
-  @FXML
-  private Button clientCancelButton;
   @FXML
   private Button clientDeleteButton;
   @FXML
@@ -55,8 +54,6 @@ public class Controller implements Initializable {
   private Button sellerSaveButton;
   @FXML
   private Button sellerEditButton;
-  @FXML
-  private Button sellerCancelButton;
   @FXML
   private Button sellerDeleteButton;
   @FXML
@@ -82,8 +79,6 @@ public class Controller implements Initializable {
   @FXML
   private Button productEditButton;
   @FXML
-  private Button productCancelButton;
-  @FXML
   private Button productDeleteButton;
   @FXML
   private TableView<Product> productTable;
@@ -103,18 +98,6 @@ public class Controller implements Initializable {
   private TextField buySellProductCodeInput;
   @FXML
   private TextField buySellProductNameInput;
-  @FXML
-  private TextField buySellTotalInput;
-  @FXML
-  private Button buySellAddButton;
-  @FXML
-  private Button buySellEditButton;
-  @FXML
-  private Button buySellCancelButton;
-  @FXML
-  private Button buySellDeleteButton;
-  @FXML
-  private ComboBox buySellPaymentMethodComboBox;
   @FXML
   private TableView<Product> buySellTable;
   @FXML
@@ -388,6 +371,7 @@ public class Controller implements Initializable {
       product.setBarcode(productBarcodeInput.getText());
       product.setSellerCnpj(productCNPJInput.getText());
 
+      assert seller != null;
       seller.getProductCatalogue().set(productTable.getSelectionModel().getSelectedIndex(), product);
 
       assert seller != null;
@@ -412,6 +396,7 @@ public class Controller implements Initializable {
   @FXML
   public void handleDeleteProduct(ActionEvent actionEvent) {
     Seller seller = searchingSeller(productTable.getSelectionModel().getSelectedItem().getSellerCnpj());
+    assert seller != null;
     deleteFunction(productTable, seller.getProductCatalogue());
   }
 
